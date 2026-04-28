@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Datela BI S.A.S. — Consultoría de Inteligencia de Negocios y Analítica de Datos" />
+  <title>Datela BI S.A.S. | Business Intelligence & Analytics</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons (CDN) -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===========================
+       NAVEGACIÓN
+  ============================ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo" aria-label="Datela BI - Inicio">
+        <span class="logo__icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#00A4E4"/>
+            <path d="M8 22 L16 10 L24 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="10" r="2.5" fill="white"/>
+            <circle cx="8" cy="22" r="2.5" fill="white"/>
+            <circle cx="24" cy="22" r="2.5" fill="white"/>
+          </svg>
+        </span>
+        <span class="logo__text">Datela <strong>BI</strong></span>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="navbar__links" id="navLinks" aria-label="Menú principal">
+        <a href="#quienes-somos" class="nav-link">¿Quiénes Somos?</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#equipo" class="nav-link">Equipo</a>
+        <a href="#contacto" class="nav-link">Contáctenos</a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="navbar__controls">
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-divider" aria-hidden="true">|</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===========================
+       HERO SECTION
+  ============================ -->
+  <section class="hero" id="inicio">
+    <!-- Animated background grid -->
+    <div class="hero__grid" aria-hidden="true"></div>
+    <!-- Floating orbs -->
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+    <div class="container hero__content">
+      <div class="hero__badge animate-fade-up">
+        <span class="badge__dot"></span>
+        Business Intelligence &amp; Analytics
+      </div>
+      <h1 class="hero__title animate-fade-up delay-1">
+        Transforma tus datos<br />
+        en <span class="text-highlight">decisiones estratégicas</span>
+      </h1>
+      <p class="hero__subtitle animate-fade-up delay-2">
+        [Inserta aquí la propuesta de valor corta]
+      </p>
+      <div class="hero__actions animate-fade-up delay-3">
+        <a href="#servicios" class="btn btn--primary">
+          Más información
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="#quienes-somos" class="btn btn--ghost">Conocer la empresa</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero__stats animate-fade-up delay-4">
+        <div class="stat">
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Proyectos entregados</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Clientes satisfechos</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">[N]+</span>
+          <span class="stat__label">Años de experiencia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="scroll__line"></span>
+    </div>
+  </section>
+
+  <!-- ===========================
+       QUIÉNES SOMOS — ACORDEÓN
+  ============================ -->
+  <section class="section section--light" id="quienes-somos">
+    <div class="container">
+
+      <div class="section__header animate-on-scroll">
+        <span class="section__label">La empresa</span>
+        <h2 class="section__title">¿Quiénes Somos?</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+
+      <div class="accordion" id="accordion" role="list">
+
+        <!-- Item 1 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-1" id="acc-btn-1">
+            <span class="accordion__number">01</span>
+            <span class="accordion__title">Propósito</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-btn-1" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-2" id="acc-btn-2">
+            <span class="accordion__number">02</span>
+            <span class="accordion__title">Misión</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-btn-2" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-3" id="acc-btn-3">
+            <span class="accordion__number">03</span>
+            <span class="accordion__title">Visión</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-btn-3" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-4" id="acc-btn-4">
+            <span class="accordion__number">04</span>
+            <span class="accordion__title">Valores</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-btn-4" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-5" id="acc-btn-5">
+            <span class="accordion__number">05</span>
+            <span class="accordion__title">Propuesta de valor</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-5" role="region" aria-labelledby="acc-btn-5" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="accordion__item animate-on-scroll" role="listitem">
+          <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-6" id="acc-btn-6">
+            <span class="accordion__number">06</span>
+            <span class="accordion__title">Enfoque estratégico</span>
+            <span class="accordion__icon" aria-hidden="true">
+              <i class="ph ph-plus"></i>
+            </span>
+          </button>
+          <div class="accordion__panel" id="acc-6" role="region" aria-labelledby="acc-btn-6" hidden>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </div>
+  </section>
+
+  <!-- ===========================
+       SERVICIOS — GRID
+  ============================ -->
+  <section class="section section--dark" id="servicios">
+    <div class="container">
+
+      <div class="section__header section__header--light animate-on-scroll">
+        <span class="section__label">Lo que hacemos</span>
+        <h2 class="section__title">Servicios</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- Card 1 -->
+        <article class="service-card animate-on-scroll">
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-chart-line-up service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 1</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="service-card service-card--featured animate-on-scroll">
+          <div class="service-card__badge">Destacado</div>
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-database service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 2</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="service-card animate-on-scroll">
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-brain service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 3</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+      </div><!-- /services__grid -->
+    </div>
+  </section>
+
+  <!-- ===========================
+       EQUIPO
+  ============================ -->
+  <section class="section section--light" id="equipo">
+    <div class="container">
+
+      <div class="section__header animate-on-scroll">
+        <span class="section__label">Las personas</span>
+        <h2 class="section__title">Equipo</h2>
+      </div>
+
+      <div class="team__card animate-on-scroll">
+
+        <!-- Photo -->
+        <div class="team__photo-wrap">
+          <div class="team__photo-placeholder" role="img" aria-label="Foto de Ing. Roque Maldonado Insignares">
+            <i class="ph ph-user-circle team__photo-icon" aria-hidden="true"></i>
+            <span class="team__photo-label">Foto del profesional</span>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="team__info">
+          <span class="team__role">Fundador &amp; Líder Técnico</span>
+          <h3 class="team__name">Ing. Roque Maldonado Insignares</h3>
+          <span class="team__credential">
+            <i class="ph ph-seal-check" aria-hidden="true"></i>
+            Científico de Datos — MinTIC
+          </span>
+          <p class="team__bio">
+            [Inserta aquí la experiencia y perfil profesional]
+          </p>
+          <div class="team__social">
+            <a href="#" class="social-btn" aria-label="LinkedIn de Roque Maldonado">
+              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-btn" aria-label="GitHub de Roque Maldonado">
+              <i class="ph ph-github-logo" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-btn" aria-label="Correo de Roque Maldonado">
+              <i class="ph ph-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /team__card -->
+    </div>
+  </section>
+
+  <!-- ===========================
+       ALIADOS — MARQUESINA
+  ============================ -->
+  <section class="section section--mid" id="aliados">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <span class="section__label">Confianza</span>
+        <h2 class="section__title">Aliados &amp; Clientes</h2>
+      </div>
+    </div>
+
+    <!-- Marquee wrapper (full-width) -->
+    <div class="marquee" aria-label="Logos de clientes y aliados" role="region">
+      <div class="marquee__track" aria-hidden="true">
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <!-- Duplicate set -->
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CONTACTO
+  ============================ -->
+  <section class="section section--dark" id="contacto">
+    <div class="container">
+
+      <div class="section__header section__header--light animate-on-scroll">
+        <span class="section__label">Hablemos</span>
+        <h2 class="section__title">Contáctenos</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+      </div>
+
+      <div class="contact__layout">
+
+        <!-- Info column -->
+        <div class="contact__info animate-on-scroll">
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-phone"></i>
+            </div>
+            <div>
+              <span class="contact__item-label">Teléfono</span>
+              <a href="tel:[Teléfono]" class="contact__item-value">[Teléfono]</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-envelope"></i>
+            </div>
+            <div>
+              <span class="contact__item-label">Correo electrónico</span>
+              <a href="mailto:[Correo]" class="contact__item-value">[Correo]</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-map-pin"></i>
+            </div>
+            <div>
+              <span class="contact__item-label">Ubicación</span>
+              <span class="contact__item-value">[Ciudad, País]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="name" class="form__label">Nombre completo</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Tu nombre" required autocomplete="name" />
+              <span class="form__error" id="nameError"></span>
+            </div>
+            <div class="form__group">
+              <label for="email" class="form__label">Correo electrónico</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="tu@correo.com" required autocomplete="email" />
+              <span class="form__error" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="subject" class="form__label">Asunto</label>
+            <input type="text" id="subject" name="subject" class="form__input" placeholder="¿En qué podemos ayudarte?" required />
+              <span class="form__error" id="subjectError"></span>
+          </div>
+          <div class="form__group">
+            <label for="message" class="form__label">Mensaje</label>
+            <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+            <span class="form__error" id="messageError"></span>
+          </div>
+
+          <!-- reCAPTCHA v2 -->
+          <div class="form__group form__group--recaptcha">
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark" data-size="normal"></div>
+            <span class="form__error" id="recaptchaError"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            Enviar mensaje
+            <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i>
+          </button>
+          <p class="form__notice" id="formNotice" aria-live="polite" role="alert"></p>
+          <p class="form__disclaimer">Protegido por reCAPTCHA y sujeto a la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad</a> y <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de servicio</a> de Google.</p>
+        </form>
+
+      </div><!-- /contact__layout -->
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  ============================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="#" class="navbar__logo footer__logo" aria-label="Datela BI - Inicio">
+          <span class="logo__icon">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#00A4E4"/>
+              <path d="M8 22 L16 10 L24 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="10" r="2.5" fill="white"/>
+              <circle cx="8" cy="22" r="2.5" fill="white"/>
+              <circle cx="24" cy="22" r="2.5" fill="white"/>
+            </svg>
+          </span>
+          <span class="logo__text">Datela <strong>BI</strong></span>
+        </a>
+        <p class="footer__tagline">Business Intelligence &amp; Analytics</p>
+        <div class="footer__social">
+          <a href="#" class="social-btn social-btn--sm" aria-label="LinkedIn de Datela BI">
+            <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-btn social-btn--sm" aria-label="Twitter/X de Datela BI">
+            <i class="ph ph-x-logo" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-btn social-btn--sm" aria-label="Instagram de Datela BI">
+            <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-btn social-btn--sm" aria-label="YouTube de Datela BI">
+            <i class="ph ph-youtube-logo" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <nav class="footer__nav" aria-label="Navegación del footer">
+        <div class="footer__col">
+          <h4 class="footer__col-title">Empresa</h4>
+          <ul class="footer__list">
+            <li><a href="#quienes-somos">¿Quiénes Somos?</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#aliados">Aliados</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Servicios</h4>
+          <ul class="footer__list">
+            <li><a href="#servicios">Servicio 1</a></li>
+            <li><a href="#servicios">Servicio 2</a></li>
+            <li><a href="#servicios">Servicio 3</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Contacto</h4>
+          <ul class="footer__list footer__list--contact">
+            <li>
+              <i class="ph ph-phone" aria-hidden="true"></i>
+              <a href="tel:[Teléfono]">[Teléfono]</a>
+            </li>
+            <li>
+              <i class="ph ph-envelope" aria-hidden="true"></i>
+              <a href="mailto:[Correo]">[Correo]</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; <span id="year"></span> Datela BI S.A.S. Todos los derechos reservados.</p>
+        <p>
+          <a href="#">Política de privacidad</a>
+          <span aria-hidden="true"> · </span>
+          <a href="#">Términos de uso</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver al inicio">
+    <i class="ph ph-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>
