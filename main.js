@@ -1,539 +1,186 @@
 /**
- * Datela BI S.A.S. — main.js
- * Lógica interactiva de la landing page con validación avanzada y reCAPTCHA
- * Versión 2.0
+ * DATELA BI S.A.S. - Main JavaScript
+ * Incluye: Navegación, Acordeón, Animaciones, Formulario e Idiomas (ES/EN)
  */
 
-'use strict';
-
-/* ============================================================
-   1. UTILIDADES
-============================================================ */
-
-/**
- * Selector abreviado
- * @param {string} selector
- * @param {Element|Document} [ctx=document]
- * @returns {Element|null}
- */
-const $ = (selector, ctx = document) => ctx.querySelector(selector);
-
-/**
- * Selector múltiple abreviado
- * @param {string} selector
- * @param {Element|Document} [ctx=document]
- * @returns {NodeList}
- */
-const $$ = (selector, ctx = document) => ctx.querySelectorAll(selector);
-
-/**
- * Ejecuta un callback cuando el DOM está listo
- * @param {Function} fn
- */
-const onReady = (fn) => {
-  if (document.readyState !== 'loading') fn();
-  else document.addEventListener('DOMContentLoaded', fn);
-};
-
-/* ============================================================
-   2. NAVBAR — Scroll + Hamburger
-============================================================ */
-
-const initNavbar = () => {
-  const navbar    = $('#navbar');
-  const hamburger = $('#hamburger');
-  const navLinks  = $('#navLinks');
-
-  if (!navbar) return;
-
-  // Scroll: agrega clase "scrolled" al bajar
-  const handleScroll = () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // estado inicial
-
-  // Hamburger toggle
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      navLinks.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-      // Prevenir scroll del body cuando el menú está abierto
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Cerrar menú al hacer clic en un enlace
-    $$('.nav-link', navLinks).forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (
-        navLinks.classList.contains('open') &&
-        !navbar.contains(e.target)
-      ) {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-    });
+// 1. DICCIONARIO DE TRADUCCIONES
+const translations = {
+  es: {
+    'nav.quienes': '¿Quiénes Somos?',
+    'nav.servicios': 'Servicios',
+    'nav.equipo': 'Equipo',
+    'nav.contacto': 'Contáctenos',
+    'hero.badge': 'Business Intelligence & Analytics',
+    'hero.title': 'Transforma tus datos en decisiones estratégicas',
+    'hero.subtitle': 'En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.',
+    'hero.btn1': 'Más información',
+    'hero.btn2': 'Conocer la empresa',
+    'hero.stat1-label': 'Proyectos entregados',
+    'hero.stat2-label': 'Años de experiencia',
+    'hero.stat3-label': 'Clientes satisfechos',
+    'about.label': 'La empresa',
+    'about.title': '¿Quiénes Somos?',
+    'services.label': 'Lo que hacemos',
+    'services.title': 'Servicios',
+    'team.label': 'Nuestro talento',
+    'team.title': 'Equipo',
+    'team.role': 'CEO & Fundador',
+    'contact.label': 'Ponte en contacto',
+    'contact.title': 'Contáctenos'
+  },
+  en: {
+    'nav.quienes': 'About Us',
+    'nav.servicios': 'Services',
+    'nav.equipo': 'Team',
+    'nav.contacto': 'Contact Us',
+    'hero.badge': 'Business Intelligence & Analytics',
+    'hero.title': 'Transform your data into strategic decisions',
+    'hero.subtitle': 'At Datela BI we help companies turn data into intelligent decisions.',
+    'hero.btn1': 'More Information',
+    'hero.btn2': 'About the Company',
+    'hero.stat1-label': 'Projects Delivered',
+    'hero.stat2-label': 'Years of Experience',
+    'hero.stat3-label': 'Satisfied Clients',
+    'about.label': 'The Company',
+    'about.title': 'About Us',
+    'services.label': 'What we do',
+    'services.title': 'Services',
+    'team.label': 'Our Talent',
+    'team.title': 'Team',
+    'team.role': 'CEO & Founder',
+    'contact.label': 'Get in Touch',
+    'contact.title': 'Contact Us'
   }
 };
 
-/* ============================================================
-   3. ACORDEÓN — Quiénes Somos
-============================================================ */
-
-const initAccordion = () => {
-  const accordion = $('#accordion');
-  if (!accordion) return;
-
-  const items = $$('.accordion__item', accordion);
-
-  items.forEach((item) => {
-    const trigger = $('.accordion__trigger', item);
-    const panel   = $('.accordion__panel', item);
-
-    if (!trigger || !panel) return;
-
-    trigger.addEventListener('click', () => {
-      const isOpen = item.classList.contains('is-open');
-
-      // Cerrar todos los demás (comportamiento de acordeón exclusivo)
-      items.forEach((otherItem) => {
-        if (otherItem !== item) {
-          closeAccordionItem(otherItem);
-        }
-      });
-
-      // Toggle el actual
-      if (isOpen) {
-        closeAccordionItem(item);
-      } else {
-        openAccordionItem(item);
-      }
-    });
-
-    // Soporte de teclado
-    trigger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        trigger.click();
-      }
-    });
-  });
-};
-
-/**
- * Abre un ítem del acordeón con animación
- * @param {Element} item
- */
-const openAccordionItem = (item) => {
-  const trigger = $('.accordion__trigger', item);
-  const panel   = $('.accordion__panel', item);
-  const body    = $('.accordion__body', item);
-
-  if (!trigger || !panel || !body) return;
-
-  item.classList.add('is-open');
-  trigger.setAttribute('aria-expanded', 'true');
-  panel.removeAttribute('hidden');
-
-  // Animación de altura
-  const targetHeight = body.scrollHeight + 'px';
-  panel.style.maxHeight = '0';
-  // Forzar reflow
-  panel.getBoundingClientRect();
-  panel.style.maxHeight = targetHeight;
-};
-
-/**
- * Cierra un ítem del acordeón con animación
- * @param {Element} item
- */
-const closeAccordionItem = (item) => {
-  const trigger = $('.accordion__trigger', item);
-  const panel   = $('.accordion__panel', item);
-
-  if (!trigger || !panel) return;
-
-  item.classList.remove('is-open');
-  trigger.setAttribute('aria-expanded', 'false');
-  panel.style.maxHeight = '0';
-
-  // Ocultar después de la transición
-  panel.addEventListener(
-    'transitionend',
-    () => {
-      if (!item.classList.contains('is-open')) {
-        panel.setAttribute('hidden', '');
-        panel.style.maxHeight = '';
-      }
-    },
-    { once: true }
-  );
-};
-
-/* ============================================================
-   4. SCROLL ANIMATIONS — Intersection Observer
-============================================================ */
-
-const initScrollAnimations = () => {
-  const elements = $$('.animate-on-scroll');
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px',
-    }
-  );
-
-  elements.forEach((el) => observer.observe(el));
-};
-
-/* ============================================================
-   5. BACK TO TOP
-============================================================ */
-
-const initBackToTop = () => {
-  const btn = $('#backToTop');
-  if (!btn) return;
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (window.scrollY > 400) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
-      }
-    },
-    { passive: true }
-  );
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-};
-
-/* ============================================================
-   6. SELECTOR DE IDIOMA
-============================================================ */
-
-const initLangSwitcher = () => {
-  const switcher = $('#langSwitcher');
-  if (!switcher) return;
-
-  const buttons = $$('.lang-btn', switcher);
-
-  buttons.forEach((btn) => {
+// 2. FUNCIÓN PARA CAMBIAR IDIOMA
+function initLanguage() {
+  const langBtns = document.querySelectorAll('.lang-btn');
+  
+  langBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remover estado activo de todos
-      buttons.forEach((b) => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
+      const lang = btn.getAttribute('data-lang');
+      
+      // Actualizar textos con data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
       });
 
-      // Activar el seleccionado
+      // Cambiar estado visual de los botones
+      langBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-
-      const lang = btn.dataset.lang;
-      document.documentElement.setAttribute('lang', lang);
-
-      // Aquí se puede integrar una librería i18n en el futuro
-      console.info(`[Datela BI] Idioma seleccionado: ${lang.toUpperCase()}`);
+      
+      // Guardar preferencia
+      localStorage.setItem('datela-lang', lang);
     });
   });
-};
 
-/* ============================================================
-   7. FORMULARIO DE CONTACTO CON RECAPTCHA AVANZADO
-============================================================ */
+  // Cargar idioma guardado
+  const savedLang = localStorage.getItem('datela-lang') || 'es';
+  const activeBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+  if (activeBtn) activeBtn.click();
+}
 
-const initContactForm = () => {
-  const form       = $('#contactForm');
-  const notice     = $('#formNotice');
-  const submitBtn  = $('#submitBtn');
+// 3. NAVEGACIÓN Y MENÚ MÓVIL
+function initNavbar() {
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
 
-  if (!form || !notice || !submitBtn) return;
-
-  // Validadores de campo
-  const validators = {
-    name: (value) => {
-      if (!value.trim()) return 'El nombre es requerido';
-      if (value.trim().length < 3) return 'El nombre debe tener al menos 3 caracteres';
-      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) return 'El nombre solo puede contener letras';
-      return null;
-    },
-    email: (value) => {
-      if (!value.trim()) return 'El correo es requerido';
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) return 'Por favor, ingresa un correo válido';
-      return null;
-    },
-    subject: (value) => {
-      if (!value.trim()) return 'El asunto es requerido';
-      if (value.trim().length < 5) return 'El asunto debe tener al menos 5 caracteres';
-      if (value.trim().length > 100) return 'El asunto no puede exceder 100 caracteres';
-      return null;
-    },
-    message: (value) => {
-      if (!value.trim()) return 'El mensaje es requerido';
-      if (value.trim().length < 10) return 'El mensaje debe tener al menos 10 caracteres';
-      if (value.trim().length > 2000) return 'El mensaje no puede exceder 2000 caracteres';
-      return null;
-    }
-  };
-
-  // Validar campo individual
-  const validateField = (fieldName) => {
-    const field = $(`#${fieldName}`, form);
-    const errorEl = $(`#${fieldName}Error`, form);
-    if (!field || !errorEl) return true;
-
-    const error = validators[fieldName]?.(field.value);
-    
-    if (error) {
-      field.classList.add('field--error');
-      errorEl.textContent = error;
-      return false;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('navbar--scrolled');
     } else {
-      field.classList.remove('field--error');
-      errorEl.textContent = '';
-      return true;
+      navbar.classList.remove('navbar--scrolled');
     }
-  };
+  });
 
-  // Validar reCAPTCHA
-  const validateRecaptcha = () => {
-    const recaptchaError = $('#recaptchaError', form);
-    const recaptchaResponse = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : null;
-    
-    if (!recaptchaResponse) {
-      if (recaptchaError) recaptchaError.textContent = 'Por favor, completa el reCAPTCHA';
-      return false;
-    } else {
-      if (recaptchaError) recaptchaError.textContent = '';
-      return true;
-    }
-  };
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('navbar__links--active');
+  });
 
-  // Validación en tiempo real
-  $$('input[required], textarea[required]', form).forEach((field) => {
-    field.addEventListener('blur', () => {
-      const fieldName = field.id;
-      if (fieldName) validateField(fieldName);
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('navbar__links--active');
     });
+  });
+}
 
-    field.addEventListener('input', () => {
-      const errorEl = $(`#${field.id}Error`, form);
-      if (errorEl && errorEl.textContent) {
-        validateField(field.id);
+// 4. ACORDEÓN INTERACTIVO
+function initAccordion() {
+  const triggers = document.querySelectorAll('.accordion__trigger');
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Cerrar otros paneles
+      triggers.forEach(otherTrigger => {
+        if (otherTrigger !== trigger) {
+          otherTrigger.setAttribute('aria-expanded', 'false');
+          const otherPanel = document.getElementById(otherTrigger.getAttribute('aria-controls'));
+          otherPanel.hidden = true;
+          otherTrigger.querySelector('i').className = 'ph ph-plus';
+        }
+      });
+
+      // Alternar panel actual
+      trigger.setAttribute('aria-expanded', !isExpanded);
+      panel.hidden = isExpanded;
+      trigger.querySelector('i').className = isExpanded ? 'ph ph-plus' : 'ph ph-x';
+    });
+  });
+}
+
+// 5. ANIMACIONES AL HACER SCROLL
+function initAnimations() {
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
       }
     });
-  });
+  }, observerOptions);
 
-  // Submit
-  form.addEventListener('submit', async (e) => {
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+// 6. FORMULARIO DE CONTACTO
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const notice = document.getElementById('formNotice');
+    const recaptcha = grecaptcha.getResponse();
 
-    // Limpiar errores previos
-    $$('.form__error', form).forEach((el) => el.textContent = '');
-    $$('.field--error', form).forEach((el) => el.classList.remove('field--error'));
-
-    // Validar todos los campos
-    const isNameValid = validateField('name');
-    const isEmailValid = validateField('email');
-    const isSubjectValid = validateField('subject');
-    const isMessageValid = validateField('message');
-    const isRecaptchaValid = validateRecaptcha();
-
-    if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid || !isRecaptchaValid) {
-      notice.textContent = 'Por favor, corrige los errores en el formulario.';
-      notice.style.color = '#FF6B6B';
+    if (!recaptcha) {
+      document.getElementById('recaptchaError').textContent = 'Por favor, completa el reCAPTCHA';
       return;
     }
 
-    // Deshabilitar botón
-    submitBtn.disabled = true;
-    const originalHTML = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="ph ph-spinner" aria-hidden="true" style="animation: spin 1s linear infinite;"></i> Enviando...';
-
-    try {
-      // Aquí iría la llamada a tu API backend
-      // Ejemplo:
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     name: $('#name', form).value,
-      //     email: $('#email', form).value,
-      //     subject: $('#subject', form).value,
-      //     message: $('#message', form).value,
-      //     recaptchaToken: grecaptcha.getResponse()
-      //   })
-      // });
-      // if (!response.ok) throw new Error('Error en la respuesta del servidor');
-
-      // Simulación de envío
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      notice.textContent = '✓ ¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.';
-      notice.style.color = 'var(--color-cyan)';
-      form.reset();
-      
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.reset();
-      }
-
-      // Limpiar mensaje después de 6 segundos
-      setTimeout(() => {
-        notice.textContent = '';
-      }, 6000);
-
-    } catch (error) {
-      console.error('Error al enviar formulario:', error);
-      notice.textContent = '✗ Error al enviar el mensaje. Por favor, intenta de nuevo.';
-      notice.style.color = '#FF6B6B';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalHTML;
-    }
+    notice.style.color = '#00A4E4';
+    notice.textContent = '✓ ¡Mensaje enviado con éxito!';
+    form.reset();
+    grecaptcha.reset();
   });
-};
+}
 
-/* ============================================================
-   8. AÑO DINÁMICO EN FOOTER
-============================================================ */
-
-const initFooterYear = () => {
-  const yearEl = $('#year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-};
-
-/* ============================================================
-   9. SMOOTH SCROLL PARA ANCLAS INTERNAS
-============================================================ */
-
-const initSmoothScroll = () => {
-  $$('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-
-      const target = $(targetId);
-      if (!target) return;
-
-      e.preventDefault();
-
-      const navbarHeight = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--navbar-height'),
-        10
-      ) || 72;
-
-      const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-};
-
-/* ============================================================
-   10. ACTIVE NAV LINK — Highlight al hacer scroll
-============================================================ */
-
-const initActiveNavLink = () => {
-  const sections = $$('section[id]');
-  const navLinks = $$('.nav-link');
-
-  if (!sections.length || !navLinks.length) return;
-
-  const navbarHeight = parseInt(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue('--navbar-height'),
-    10
-  ) || 72;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            link.classList.toggle('active', href === `#${id}`);
-          });
-        }
-      });
-    },
-    {
-      rootMargin: `-${navbarHeight}px 0px -60% 0px`,
-      threshold: 0,
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-};
-
-/* ============================================================
-   11. ANIMACIÓN DE SPINNER
-============================================================ */
-
-const initSpinnerAnimation = () => {
-  if (!document.querySelector('style[data-spinner]')) {
-    const style = document.createElement('style');
-    style.setAttribute('data-spinner', '');
-    style.textContent = `
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-};
-
-/* ============================================================
-   12. INICIALIZACIÓN PRINCIPAL
-============================================================ */
-
-onReady(() => {
+// INICIALIZAR TODO
+document.addEventListener('DOMContentLoaded', () => {
+  initLanguage();
   initNavbar();
   initAccordion();
-  initScrollAnimations();
-  initBackToTop();
-  initLangSwitcher();
+  initAnimations();
   initContactForm();
-  initFooterYear();
-  initSmoothScroll();
-  initActiveNavLink();
-  initSpinnerAnimation();
-
-  console.info('%c Datela BI S.A.S. — Landing Page v2.0 (con reCAPTCHA) ', 'background:#0B2046;color:#00A4E4;font-weight:bold;padding:4px 8px;border-radius:4px;');
 });
