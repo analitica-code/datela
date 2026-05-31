@@ -9,14 +9,25 @@ const translations = {
     'hero.stat2-label': 'Años de experiencia',
     'about.label': 'La empresa',
     'about.title': '¿Quiénes Somos?',
-    'acc.title1': 'Propósito',
-    'acc.body1': 'Impulsar organizaciones más inteligentes mediante el uso estratégico de los datos...',
-    'acc.title2': 'Misión',
-    'acc.body2': 'En Datela BI desarrollamos soluciones de inteligencia de negocios...',
-    'acc.title3': 'Visión',
-    'acc.body3': 'Para el año 2030, Datela BI será reconocida como una empresa líder...',
-    'partners.label': 'Confianza',
-    'partners.title': 'Aliados & Clientes'
+    'about.desc': 'Somos un grupo de expertos en analítica, tecnologías, procesos y asesores en naturaleza de negocios.',
+    'acc.title1': 'Propósito', 'acc.body1': 'Impulsar organizaciones más inteligentes mediante el uso estratégico de los datos...',
+    'acc.title2': 'Misión', 'acc.body2': 'En Datela BI desarrollamos soluciones de inteligencia de negocios...',
+    'acc.title3': 'Visión', 'acc.body3': 'Para el año 2030, Datela BI será reconocida como una empresa líder...',
+    'acc.title4': 'Valores', 'acc.body4': 'Innovación, Integridad, Orientación al cliente, Excelencia, Aprendizaje continuo, Colaboración',
+    'acc.title5': 'Propuesta de valor', 'acc.body5': 'Ayudamos a las organizaciones a convertir datos en decisiones inteligentes...',
+    'acc.title6': 'Enfoque estratégico', 'acc.body6': 'Inteligencia de Negocios, Analítica de datos, Inteligencia Artificial...',
+    'services.label': 'Lo que hacemos',
+    'services.title': 'Servicios',
+    'team.label': 'El equipo',
+    'team.title': 'Conoce a nuestro equipo',
+    'contact.label': 'Hablemos',
+    'contact.title': 'Contáctenos',
+    'contact.name_placeholder': 'Tu nombre',
+    'contact.email_placeholder': 'tu@correo.com',
+    'contact.subject_placeholder': '¿En qué podemos ayudarte?',
+    'contact.message_placeholder': 'Cuéntanos sobre tu proyecto...',
+    'contact.submit_button': 'Enviar mensaje',
+    'footer.copyright': '© 2026 Datela BI S.A.S. Todos los derechos reservados.'
   },
   en: {
     'nav.quienes': 'About Us',
@@ -28,15 +39,25 @@ const translations = {
     'hero.stat2-label': 'Years of experience',
     'about.label': 'The Company',
     'about.title': 'About Us',
-    'about.desc': 'We are a group of experts in analytics, technologies, processes, and business advisors...',
-    'acc.title1': 'Purpose',
-    'acc.body1': 'Drive smarter organizations through the strategic use of data...',
-    'acc.title2': 'Mission',
-    'acc.body2': 'At Datela BI we develop business intelligence solutions...',
-    'acc.title3': 'Vision',
-    'acc.body3': 'By the year 2030, Datela BI will be recognized as a leading company...',
-    'partners.label': 'Trust',
-    'partners.title': 'Partners & Clients'
+    'about.desc': 'We are a group of experts in analytics, technologies, processes, and business advisors.',
+    'acc.title1': 'Purpose', 'acc.body1': 'Drive smarter organizations through the strategic use of data...',
+    'acc.title2': 'Mission', 'acc.body2': 'At Datela BI we develop business intelligence solutions...',
+    'acc.title3': 'Vision', 'acc.body3': 'By the year 2030, Datela BI will be recognized as a leading company...',
+    'acc.title4': 'Values', 'acc.body4': 'Innovation, Integrity, Client Orientation, Excellence, Continuous Learning, Collaboration',
+    'acc.title5': 'Value Proposition', 'acc.body5': 'We help organizations turn data into intelligent decisions...',
+    'acc.title6': 'Strategic Approach', 'acc.body6': 'Business Intelligence, Data Analytics, Artificial Intelligence...',
+    'services.label': 'What we do',
+    'services.title': 'Services',
+    'team.label': 'The Team',
+    'team.title': 'Meet Our Team',
+    'contact.label': 'Let\'s Talk',
+    'contact.title': 'Contact Us',
+    'contact.name_placeholder': 'Your name',
+    'contact.email_placeholder': 'your@email.com',
+    'contact.subject_placeholder': 'How can we help you?',
+    'contact.message_placeholder': 'Tell us about your project...',
+    'contact.submit_button': 'Send Message',
+    'footer.copyright': '© 2026 Datela BI S.A.S. All rights reserved.'
   }
 };
 
@@ -47,15 +68,27 @@ function initLanguage() {
       const lang = btn.getAttribute('data-lang');
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
+        if (translations[lang] && translations[lang][key]) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
         }
       });
       langButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      localStorage.setItem('selectedLanguage', lang);
     });
   });
+
+  const savedLang = localStorage.getItem('selectedLanguage') || 'es';
+  const targetBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+  if (targetBtn) targetBtn.click();
 }
+
+document.addEventListener('DOMContentLoaded', initLanguage);
+
 /**
  * Datela BI S.A.S. — main.js
  * Lógica interactiva de la landing page con validación avanzada y reCAPTCHA
