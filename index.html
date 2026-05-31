@@ -24,38 +24,24 @@
   <!-- ===========================
        NAVEGACIÓN
   ============================ -->
-  <header class="navbar" id="navbar">
+   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
-
-      <!-- Logo -->
-      <a href="#" class="navbar__logo" aria-label="Datela BI - Inicio">
-        <span class="logo__icon">
-         <div style="display: flex; align-items: center;">
-  <img src="logo datela.PNG" alt="Logo Datela BI" style="height: 60px; margin-right: 12px;">
-  <span style="color: #FFFFFF; font-weight: bold; font-size: 22px; letter-spacing: 1px;">Datela BI S.A.S</span>
-</div>
+      <a href="#" class="navbar__logo">
+        <span class="logo__text">Datela <strong>BI</strong></span>
       </a>
-
-      <!-- Nav Links -->
-      <nav class="navbar__links" id="navLinks" aria-label="Menú principal">
-        <a href="#quienes-somos" class="nav-link">¿Quiénes Somos?</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#equipo" class="nav-link">Equipo</a>
-        <a href="#contacto" class="nav-link">Contáctenos</a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="#quienes-somos" class="nav-link" data-i18n="nav.quienes">¿Quiénes Somos?</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav.servicios">Servicios</a>
+        <a href="#equipo" class="nav-link" data-i18n="nav.equipo">Equipo</a>
+        <a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contáctenos</a>
       </nav>
-
-      <!-- Right Controls -->
       <div class="navbar__controls">
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
-          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
-          <span class="lang-divider" aria-hidden="true">|</span>
-          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <span style="color: white; opacity: 0.3;">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-          <span></span><span></span><span></span>
-        </button>
       </div>
-
     </div>
   </header>
 
@@ -63,57 +49,20 @@
        HERO SECTION
   ============================ -->
   <section class="hero" id="inicio">
-    <!-- Animated background grid -->
-    <div class="hero__grid" aria-hidden="true"></div>
-    <!-- Floating orbs -->
-    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-
     <div class="container hero__content">
-      <div class="hero__badge animate-fade-up">
-        <span class="badge__dot"></span>
-        Business Intelligence &amp; Analytics
-      </div>
-      <h1 class="hero__title animate-fade-up delay-1">
-        Transforma tus datos<br />
-        en <span class="text-highlight">decisiones estratégicas</span>
-      </h1>
-      <p class="hero__subtitle animate-fade-up delay-2">
-        [Inserta aquí la propuesta de valor corta]
+      <h1 class="hero__title" data-i18n="hero.title">Transforma tus datos en decisiones estratégicas</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">
+        En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
       </p>
-      <div class="hero__actions animate-fade-up delay-3">
-        <a href="#servicios" class="btn btn--primary">
-          Más información
-          <i class="ph ph-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a href="#quienes-somos" class="btn btn--ghost">Conocer la empresa</a>
-      </div>
-
-      <!-- Stats row -->
-      <div class="hero__stats animate-fade-up delay-4">
+      <div class="hero__stats">
         <div class="stat">
-          <span class="stat__value">+[N]</span>
-          <span class="stat__label">Proyectos entregados</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat__value">+[N]</span>
-          <span class="stat__label">Clientes satisfechos</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat__value">[N]+</span>
-          <span class="stat__label">Años de experiencia</span>
+          <span class="stat__value">23+</span>
+          <span class="stat__label" data-i18n="hero.stat2-label">Años de experiencia</span>
         </div>
       </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="hero__scroll" aria-hidden="true">
-      <span class="scroll__line"></span>
     </div>
   </section>
-
+  
   <!-- ===========================
        QUIÉNES SOMOS — ACORDEÓN
   ============================ -->
@@ -255,21 +204,24 @@ fidelizar clientes e incrementar la participación en el mercado.
        <!-- ===========================
          SERVICIOS (CON FONDO AZUL Y AMPLIACIÓN DE IMAGEN)
     ============================ -->
-    <style>
+      <style>
       /* Estilos específicos para esta sección */
       #servicios {
-        background-color: #0B2046 !important; /* Azul corporativo forzado */
+        background-color: #0B2046 !important;
         color: white !important;
         padding: 80px 0;
       }
       .service-card {
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
-        padding: 30px;
+        padding: 20px;
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         transition: 0.3s;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .service-card:hover {
         transform: translateY(-10px);
@@ -280,8 +232,7 @@ fidelizar clientes e incrementar la participación en el mercado.
         cursor: zoom-in;
         overflow: hidden;
         border-radius: 12px;
-        margin-bottom: 20px;
-        height: 200px;
+        height: 350px; /* Aumentamos la altura ya que no hay texto */
         background: #071530;
       }
       .service-card__img-container img {
@@ -291,27 +242,27 @@ fidelizar clientes e incrementar la participación en el mercado.
         transition: transform 0.5s;
       }
       .service-card__img-container:hover img {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
       /* Estilos para el visor de imagen ampliada */
       .lightbox-overlay {
         display: none;
         position: fixed;
-        z-index: 9999;
+        z-index: 99999;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.95);
         justify-content: center;
         align-items: center;
         cursor: zoom-out;
       }
       .lightbox-overlay img {
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 95%;
+        max-height: 95%;
         border-radius: 8px;
-        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        box-shadow: 0 0 40px rgba(0,0,0,0.8);
       }
     </style>
 
@@ -323,32 +274,28 @@ fidelizar clientes e incrementar la participación en el mercado.
         </div>
 
         <div class="services__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+          
           <!-- Servicio 1 -->
           <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='servicio1.png'; document.getElementById('lb-overlay').style.display='flex'">
+            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 1 s.png'; document.getElementById('lb-overlay').style.display='flex'">
               <img src="Captura de pantalla 1 s.png" alt="Servicio 1">
             </div>
-            <h3 style="color: white; margin-bottom: 15px; font-family: 'Montserrat', sans-serif;">Servicio 1</h3>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">[Breve descripción del servicio aquí]</p>
           </div>
 
           <!-- Servicio 2 -->
           <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='servicio2.png'; document.getElementById('lb-overlay').style.display='flex'">
+            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 2s.png'; document.getElementById('lb-overlay').style.display='flex'">
               <img src="Captura de pantalla 2s.png" alt="Servicio 2">
             </div>
-            <h3 style="color: white; margin-bottom: 15px; font-family: 'Montserrat', sans-serif;">Servicio 2</h3>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">[Breve descripción del servicio aquí]</p>
           </div>
 
           <!-- Servicio 3 -->
           <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='servicio3.png'; document.getElementById('lb-overlay').style.display='flex'">
+            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 3s.png'; document.getElementById('lb-overlay').style.display='flex'">
               <img src="Captura de pantalla 3s.png" alt="Servicio 3">
             </div>
-            <h3 style="color: white; margin-bottom: 15px; font-family: 'Montserrat', sans-serif;">Servicio 3</h3>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.6;">[Breve descripción del servicio aquí]</p>
           </div>
+
         </div>
       </div>
     </section>
@@ -356,8 +303,8 @@ fidelizar clientes e incrementar la participación en el mercado.
     <!-- Visor de imagen ampliada (Lightbox) -->
     <div id="lb-overlay" class="lightbox-overlay" onclick="this.style.display='none'">
       <img id="lb-img" src="" alt="Imagen ampliada">
+      <div style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-family: Arial;">&times;</div>
     </div>
-
 
   <!-- ===========================
        EQUIPO
@@ -382,7 +329,7 @@ fidelizar clientes e incrementar la participación en el mercado.
 
         <!-- Info -->
         <div class="team__info">
-          <span class="team__role">Fundador &amp; Líder Técnico</span>
+          <span class="team__role">Fundador &amp; CEO</span>
           <h3 class="team__name">Ing. Roque Maldonado Insignares</h3>
           <span class="team__credential">
             <i class="ph ph-seal-check" aria-hidden="true"></i>
@@ -625,5 +572,14 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
   </button>
 
   <script src="main.js"></script>
+    <section id="privacy" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: 20px;">
+    <div style="background: white; max-width: 800px; margin: 40px auto; padding: 30px; border-radius: 12px; color: #333;">
+      <button onclick="document.getElementById('privacy').style.display='none'" style="float: right; font-size: 30px; border: none; background: none; cursor: pointer;">&times;</button>
+      <h2 style="color: #0B2046;">Política de Tratamiento de Datos Personales</h2>
+      <p><strong>Responsable:</strong> DATELA BI S.A.S. | NIT: 802018415-1</p>
+      <p>Sus datos serán utilizados para: Mantenimiento de relación comercial, facturación y envío de información de servicios...</p>
+      <p>Para consultas o reclamos: analitica@datelabi.com</p>
+    </div>
+  </section>
 </body>
 </html>
