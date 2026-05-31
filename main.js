@@ -576,32 +576,7 @@ onReady(() => {
   initAccordion();
   initScrollAnimations();
   initBackToTop();
-  initLangSwitcher(  const buttons = document.querySelectorAll('.lang-btn');
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      // Cambiar textos
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = translations[lang][key];
-          } else {
-            el.textContent = translations[lang][key];
-          }
-        }
-      });
-      // Cambiar estado visual de botones
-      buttons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      localStorage.setItem('selectedLanguage', lang);
-    });
-  });
-
-  // Cargar idioma guardado al iniciar
-  const savedLang = localStorage.getItem('selectedLanguage') || 'es';
-  document.querySelector(`.lang-btn[data-lang="${savedLang}"]`)?.click();
-);
+  initLangSwitcher();
   initContactForm();
   initFooterYear();
   initSmoothScroll();
