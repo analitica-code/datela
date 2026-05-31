@@ -1,3 +1,61 @@
+const translations = {
+  es: {
+    'nav.quienes': '¿Quiénes Somos?',
+    'nav.servicios': 'Servicios',
+    'nav.equipo': 'Equipo',
+    'nav.contacto': 'Contáctenos',
+    'hero.title': 'Transforma tus datos en decisiones estratégicas',
+    'hero.subtitle': 'En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.',
+    'hero.stat2-label': 'Años de experiencia',
+    'about.label': 'La empresa',
+    'about.title': '¿Quiénes Somos?',
+    'acc.title1': 'Propósito',
+    'acc.body1': 'Impulsar organizaciones más inteligentes mediante el uso estratégico de los datos...',
+    'acc.title2': 'Misión',
+    'acc.body2': 'En Datela BI desarrollamos soluciones de inteligencia de negocios...',
+    'acc.title3': 'Visión',
+    'acc.body3': 'Para el año 2030, Datela BI será reconocida como una empresa líder...',
+    'partners.label': 'Confianza',
+    'partners.title': 'Aliados & Clientes'
+  },
+  en: {
+    'nav.quienes': 'About Us',
+    'nav.servicios': 'Services',
+    'nav.equipo': 'Team',
+    'nav.contacto': 'Contact Us',
+    'hero.title': 'Transform your data into strategic decisions',
+    'hero.subtitle': 'At Datela BI we help companies turn data into intelligent decisions.',
+    'hero.stat2-label': 'Years of experience',
+    'about.label': 'The Company',
+    'about.title': 'About Us',
+    'about.desc': 'We are a group of experts in analytics, technologies, processes, and business advisors...',
+    'acc.title1': 'Purpose',
+    'acc.body1': 'Drive smarter organizations through the strategic use of data...',
+    'acc.title2': 'Mission',
+    'acc.body2': 'At Datela BI we develop business intelligence solutions...',
+    'acc.title3': 'Vision',
+    'acc.body3': 'By the year 2030, Datela BI will be recognized as a leading company...',
+    'partners.label': 'Trust',
+    'partners.title': 'Partners & Clients'
+  }
+};
+
+function initLanguage() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      langButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+}
 /**
  * Datela BI S.A.S. — main.js
  * Lógica interactiva de la landing page con validación avanzada y reCAPTCHA
