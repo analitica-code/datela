@@ -103,7 +103,7 @@ const translations = {
     'team.ceo_name': 'Juan David Vargas',
     'team.ceo_role': 'CEO & Founder',
     'team.ceo_bio': 'Juan David is a visionary leader with over 20 years of experience in the technology and data analytics sector. His passion for transforming data into business strategies led him to found Datela BI, where he drives innovation and growth. He is an expert in Business Intelligence, Machine Learning, and Big Data, and a firm believer in the power of data to drive business success.',
-    'contact.label': 'Let\\'s Talk',
+    'contact.label': 'Let's Talk',
     'contact.title': 'Contact Us',
     'contact.name_label': 'Full Name',
     'contact.name_placeholder': 'Your name',
