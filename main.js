@@ -393,14 +393,14 @@ const initLangSwitcher = () => {
       document.documentElement.setAttribute('lang', lang);
       localStorage.setItem('selectedLanguage', lang);
 
-      // 3. TRADUCIR LOS TEXTOS (Esta es la parte que faltaba)
+      // 3. Traducir los textos
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
           if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
             el.placeholder = translations[lang][key];
           } else if (key.includes('body') || key.includes('copyright') || key.includes('responsible') || key.includes('purpose')) {
-            el.innerHTML = translations[lang][key]; // Para textos con negritas o listas
+            el.innerHTML = translations[lang][key]; 
           } else {
             el.textContent = translations[lang][key];
           }
@@ -413,9 +413,10 @@ const initLangSwitcher = () => {
 
   // 4. Cargar el idioma guardado al abrir la página
   const savedLang = localStorage.getItem('selectedLanguage') || 'es';
-  const targetBtn = $(`.lang-btn[data-lang="${savedLang}"]`, switcher);
+  const targetBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
   if (targetBtn) targetBtn.click();
 };
+
 /* ============================================================
    7. FORMULARIO DE CONTACTO CON RECAPTCHA AVANZADO
 ============================================================ */
