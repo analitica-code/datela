@@ -103,7 +103,7 @@ const translations = {
     'team.ceo_name': 'Juan David Vargas',
     'team.ceo_role': 'CEO & Founder',
     'team.ceo_bio': 'Juan David is a visionary leader with over 20 years of experience in the technology and data analytics sector. His passion for transforming data into business strategies led him to found Datela BI, where he drives innovation and growth. He is an expert in Business Intelligence, Machine Learning, and Big Data, and a firm believer in the power of data to drive business success.',
-    'contact.label': 'Let's Talk',
+    'contact.label': "Let's Talk",
     'contact.title': 'Contact Us',
     'contact.name_label': 'Full Name',
     'contact.name_placeholder': 'Your name',
@@ -136,30 +136,13 @@ const translations = {
     'privacy_modal.contact': 'For inquiries or claims: analitica@datelabi.com'
   }
 };
+
 /* ============================================================
    1. UTILIDADES
 ============================================================ */
 
-/**
- * Selector abreviado
- * @param {string} selector
- * @param {Element|Document} [ctx=document]
- * @returns {Element|null}
- */
 const $ = (selector, ctx = document) => ctx.querySelector(selector);
-
-/**
- * Selector múltiple abreviado
- * @param {string} selector
- * @param {Element|Document} [ctx=document]
- * @returns {NodeList}
- */
 const $$ = (selector, ctx = document) => ctx.querySelectorAll(selector);
-
-/**
- * Ejecuta un callback cuando el DOM está listo
- * @param {Function} fn
- */
 const onReady = (fn) => {
   if (document.readyState !== 'loading') fn();
   else document.addEventListener('DOMContentLoaded', fn);
@@ -176,7 +159,6 @@ const initNavbar = () => {
 
   if (!navbar) return;
 
-  // Scroll: agrega clase "scrolled" al bajar
   const handleScroll = () => {
     if (window.scrollY > 40) {
       navbar.classList.add('scrolled');
@@ -186,19 +168,16 @@ const initNavbar = () => {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // estado inicial
+  handleScroll();
 
-  // Hamburger toggle
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const isOpen = hamburger.classList.toggle('open');
       navLinks.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
-      // Prevenir scroll del body cuando el menú está abierto
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Cerrar menú al hacer clic en un enlace
     $$('.nav-link', navLinks).forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
@@ -206,19 +185,6 @@ const initNavbar = () => {
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (
-        navLinks.classList.contains('open') &&
-        !navbar.contains(e.target)
-      ) {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
     });
   }
 };
@@ -235,42 +201,24 @@ const initAccordion = () => {
 
   items.forEach((item) => {
     const trigger = $('.accordion__trigger', item);
-    const panel   = $('.accordion__panel', item);
-
-    if (!trigger || !panel) return;
+    if (!trigger) return;
 
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
 
-      // Cerrar todos los demás (comportamiento de acordeón exclusivo)
       items.forEach((otherItem) => {
-        if (otherItem !== item) {
-          closeAccordionItem(otherItem);
-        }
+        if (otherItem !== item) closeAccordionItem(otherItem);
       });
 
-      // Toggle el actual
       if (isOpen) {
         closeAccordionItem(item);
       } else {
         openAccordionItem(item);
       }
     });
-
-    // Soporte de teclado
-    trigger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        trigger.click();
-      }
-    });
   });
 };
 
-/**
- * Abre un ítem del acordeón con animación
- * @param {Element} item
- */
 const openAccordionItem = (item) => {
   const trigger = $('.accordion__trigger', item);
   const panel   = $('.accordion__panel', item);
@@ -281,19 +229,9 @@ const openAccordionItem = (item) => {
   item.classList.add('is-open');
   trigger.setAttribute('aria-expanded', 'true');
   panel.removeAttribute('hidden');
-
-  // Animación de altura
-  const targetHeight = body.scrollHeight + 'px';
-  panel.style.maxHeight = '0';
-  // Forzar reflow
-  panel.getBoundingClientRect();
-  panel.style.maxHeight = targetHeight;
+  panel.style.maxHeight = body.scrollHeight + 'px';
 };
 
-/**
- * Cierra un ítem del acordeón con animación
- * @param {Element} item
- */
 const closeAccordionItem = (item) => {
   const trigger = $('.accordion__trigger', item);
   const panel   = $('.accordion__panel', item);
@@ -303,65 +241,45 @@ const closeAccordionItem = (item) => {
   item.classList.remove('is-open');
   trigger.setAttribute('aria-expanded', 'false');
   panel.style.maxHeight = '0';
-
-  // Ocultar después de la transición
-  panel.addEventListener(
-    'transitionend',
-    () => {
-      if (!item.classList.contains('is-open')) {
-        panel.setAttribute('hidden', '');
-        panel.style.maxHeight = '';
-      }
-    },
-    { once: true }
-  );
 };
 
 /* ============================================================
-   4. SCROLL ANIMATIONS — Intersection Observer
+   4. ANIMACIONES AL HACER SCROLL
 ============================================================ */
 
 const initScrollAnimations = () => {
-  const elements = $$('.animate-on-scroll');
-  if (!elements.length) return;
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1,
+  };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px',
-    }
-  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, observerOptions);
 
-  elements.forEach((el) => observer.observe(el));
+  $$('.animate-on-scroll').forEach((el) => observer.observe(el));
 };
 
 /* ============================================================
-   5. BACK TO TOP
+   5. BOTÓN VOLVER ARRIBA
 ============================================================ */
 
 const initBackToTop = () => {
   const btn = $('#backToTop');
   if (!btn) return;
 
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (window.scrollY > 400) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
-      }
-    },
-    { passive: true }
-  );
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+  });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -380,27 +298,25 @@ const initLangSwitcher = () => {
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      // 1. Cambiar estado visual de los botones
       buttons.forEach((b) => {
         b.classList.remove('active');
         b.setAttribute('aria-pressed', 'false');
       });
+
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
 
-      // 2. Obtener el idioma seleccionado
       const lang = btn.dataset.lang;
       document.documentElement.setAttribute('lang', lang);
       localStorage.setItem('selectedLanguage', lang);
 
-      // 3. Traducir los textos
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
           if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
             el.placeholder = translations[lang][key];
-          } else if (key.includes('body') || key.includes('copyright') || key.includes('responsible') || key.includes('purpose')) {
-            el.innerHTML = translations[lang][key]; 
+          } else if (key.includes('body') || key.includes('copyright') || key.includes('desc') || key.includes('bio')) {
+            el.innerHTML = translations[lang][key];
           } else {
             el.textContent = translations[lang][key];
           }
@@ -411,160 +327,74 @@ const initLangSwitcher = () => {
     });
   });
 
-  // 4. Cargar el idioma guardado al abrir la página
   const savedLang = localStorage.getItem('selectedLanguage') || 'es';
   const targetBtn = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
   if (targetBtn) targetBtn.click();
 };
 
 /* ============================================================
-   7. FORMULARIO DE CONTACTO CON RECAPTCHA AVANZADO
+   7. FORMULARIO DE CONTACTO
 ============================================================ */
 
 const initContactForm = () => {
-  const form       = $('#contactForm');
-  const notice     = $('#formNotice');
-  const submitBtn  = $('#submitBtn');
+  const form = $('#contactForm');
+  const notice = $('#formNotice');
+  const submitBtn = $('#submitBtn');
 
   if (!form || !notice || !submitBtn) return;
 
-  // Validadores de campo
-  const validators = {
-    name: (value) => {
-      if (!value.trim()) return 'El nombre es requerido';
-      if (value.trim().length < 3) return 'El nombre debe tener al menos 3 caracteres';
-      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) return 'El nombre solo puede contener letras';
-      return null;
-    },
-    email: (value) => {
-      if (!value.trim()) return 'El correo es requerido';
+  const validateField = (id) => {
+    const field = $(`#${id}`, form);
+    const error = $(`#${id}Error`, form);
+    if (!field || !error) return true;
+
+    let isValid = true;
+    if (!field.value.trim()) {
+      isValid = false;
+    } else if (id === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) return 'Por favor, ingresa un correo válido';
-      return null;
-    },
-    subject: (value) => {
-      if (!value.trim()) return 'El asunto es requerido';
-      if (value.trim().length < 5) return 'El asunto debe tener al menos 5 caracteres';
-      if (value.trim().length > 100) return 'El asunto no puede exceder 100 caracteres';
-      return null;
-    },
-    message: (value) => {
-      if (!value.trim()) return 'El mensaje es requerido';
-      if (value.trim().length < 10) return 'El mensaje debe tener al menos 10 caracteres';
-      if (value.trim().length > 2000) return 'El mensaje no puede exceder 2000 caracteres';
-      return null;
+      isValid = emailRegex.test(field.value);
     }
+
+    field.classList.toggle('field--error', !isValid);
+    return isValid;
   };
 
-  // Validar campo individual
-  const validateField = (fieldName) => {
-    const field = $(`#${fieldName}`, form);
-    const errorEl = $(`#${fieldName}Error`, form);
-    if (!field || !errorEl) return true;
-
-    const error = validators[fieldName]?.(field.value);
-    
-    if (error) {
-      field.classList.add('field--error');
-      errorEl.textContent = error;
-      return false;
-    } else {
-      field.classList.remove('field--error');
-      errorEl.textContent = '';
-      return true;
-    }
-  };
-
-  // Validar reCAPTCHA
-  const validateRecaptcha = () => {
-    const recaptchaError = $('#recaptchaError', form);
-    const recaptchaResponse = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : null;
-    
-    if (!recaptchaResponse) {
-      if (recaptchaError) recaptchaError.textContent = 'Por favor, completa el reCAPTCHA';
-      return false;
-    } else {
-      if (recaptchaError) recaptchaError.textContent = '';
-      return true;
-    }
-  };
-
-  // Validación en tiempo real
-  $$('input[required], textarea[required]', form).forEach((field) => {
-    field.addEventListener('blur', () => {
-      const fieldName = field.id;
-      if (fieldName) validateField(fieldName);
-    });
-
+  $$('.form__field', form).forEach((field) => {
+    field.addEventListener('blur', () => validateField(field.id));
     field.addEventListener('input', () => {
-      const errorEl = $(`#${field.id}Error`, form);
-      if (errorEl && errorEl.textContent) {
+      if (field.classList.contains('field--error')) {
         validateField(field.id);
       }
     });
   });
 
-  // Submit
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Limpiar errores previos
-    $$('.form__error', form).forEach((el) => el.textContent = '');
-    $$('.field--error', form).forEach((el) => el.classList.remove('field--error'));
-
-    // Validar todos los campos
     const isNameValid = validateField('name');
     const isEmailValid = validateField('email');
     const isSubjectValid = validateField('subject');
     const isMessageValid = validateField('message');
-    const isRecaptchaValid = validateRecaptcha();
 
-    if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid || !isRecaptchaValid) {
+    if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
       notice.textContent = 'Por favor, corrige los errores en el formulario.';
       notice.style.color = '#FF6B6B';
       return;
     }
 
-    // Deshabilitar botón
     submitBtn.disabled = true;
     const originalHTML = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="ph ph-spinner" aria-hidden="true" style="animation: spin 1s linear infinite;"></i> Enviando...';
+    submitBtn.innerHTML = 'Enviando...';
 
     try {
-      // Aquí iría la llamada a tu API backend
-      // Ejemplo:
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     name: $('#name', form).value,
-      //     email: $('#email', form).value,
-      //     subject: $('#subject', form).value,
-      //     message: $('#message', form).value,
-      //     recaptchaToken: grecaptcha.getResponse()
-      //   })
-      // });
-      // if (!response.ok) throw new Error('Error en la respuesta del servidor');
-
-      // Simulación de envío
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      notice.textContent = '✓ ¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.';
+      notice.textContent = '✓ ¡Mensaje enviado exitosamente!';
       notice.style.color = 'var(--color-cyan)';
       form.reset();
-      
-      if (typeof grecaptcha !== 'undefined') {
-        grecaptcha.reset();
-      }
-
-      // Limpiar mensaje después de 6 segundos
-      setTimeout(() => {
-        notice.textContent = '';
-      }, 6000);
-
+      setTimeout(() => { notice.textContent = ''; }, 6000);
     } catch (error) {
-      console.error('Error al enviar formulario:', error);
-      notice.textContent = '✗ Error al enviar el mensaje. Por favor, intenta de nuevo.';
+      notice.textContent = '✗ Error al enviar el mensaje.';
       notice.style.color = '#FF6B6B';
     } finally {
       submitBtn.disabled = false;
@@ -585,7 +415,7 @@ const initFooterYear = () => {
 };
 
 /* ============================================================
-   9. SMOOTH SCROLL PARA ANCLAS INTERNAS
+   9. SMOOTH SCROLL
 ============================================================ */
 
 const initSmoothScroll = () => {
@@ -598,22 +428,15 @@ const initSmoothScroll = () => {
       if (!target) return;
 
       e.preventDefault();
-
-      const navbarHeight = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--navbar-height'),
-        10
-      ) || 72;
-
+      const navbarHeight = 72;
       const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 };
 
 /* ============================================================
-   10. ACTIVE NAV LINK — Highlight al hacer scroll
+   10. ACTIVE NAV LINK
 ============================================================ */
 
 const initActiveNavLink = () => {
@@ -621,12 +444,6 @@ const initActiveNavLink = () => {
   const navLinks = $$('.nav-link');
 
   if (!sections.length || !navLinks.length) return;
-
-  const navbarHeight = parseInt(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue('--navbar-height'),
-    10
-  ) || 72;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -640,10 +457,7 @@ const initActiveNavLink = () => {
         }
       });
     },
-    {
-      rootMargin: `-${navbarHeight}px 0px -60% 0px`,
-      threshold: 0,
-    }
+    { rootMargin: '-72px 0px -60% 0px', threshold: 0 }
   );
 
   sections.forEach((section) => observer.observe(section));
@@ -657,12 +471,7 @@ const initSpinnerAnimation = () => {
   if (!document.querySelector('style[data-spinner]')) {
     const style = document.createElement('style');
     style.setAttribute('data-spinner', '');
-    style.textContent = `
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-    `;
+    style.textContent = `@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`;
     document.head.appendChild(style);
   }
 };
@@ -683,5 +492,5 @@ onReady(() => {
   initActiveNavLink();
   initSpinnerAnimation();
 
-  console.info('%c Datela BI S.A.S. — Landing Page v2.0 (con reCAPTCHA) ', 'background:#0B2046;color:#00A4E4;font-weight:bold;padding:4px 8px;border-radius:4px;');
+  console.info('%c Datela BI S.A.S. — Landing Page v2.0 ', 'background:#0B2046;color:#00A4E4;font-weight:bold;padding:4px 8px;border-radius:4px;');
 });
