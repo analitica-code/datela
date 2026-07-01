@@ -422,69 +422,68 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
 <section id="contact" class="section-pad">
   <div class="container">
     <div class="section-header">
-      <span class="badge" data-i18n="contact.lets_talk">HABLEMOS</span>
+      <span class="badge" data-i18n="partners.our_partners">CONFIANZA</span>
       <h2 class="section-title" data-i18n="contact.title">Contáctanos</h2>
     </div>
 
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item">
-          <i class="ph ph-phone-call" aria-hidden="true"></i>
+    <div class="contact__layout">
+      <div class="contact__info">
+        <div class="contact__item">
+          <div class="contact__icon-wrap">
+            <i class="ph ph-phone-call" aria-hidden="true"></i>
+          </div>
           <div>
-            <span class="contact-label" data-i18n="contact.phone_label">Teléfono</span>
-            <a href="tel:+573006547315" class="contact-value">+57 3006547315</a>
+            <span class="contact__item-label" data-i18n="contact.phone_label">Teléfono</span>
+            <a href="tel:+573006547315" class="contact__item-value">+57 3006547315</a>
           </div>
         </div>
-        <div class="contact-item">
-          <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+        <div class="contact__item">
+          <div class="contact__icon-wrap">
+            <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+          </div>
           <div>
-            <span class="contact-label" data-i18n="contact.email_label">Correo Electrónico</span>
-            <a href="mailto:analitica@datelabi.com" class="contact-value">analitica@datelabi.com</a>
+            <span class="contact__item-label" data-i18n="contact.email_label">Correo Electrónico</span>
+            <a href="mailto:analitica@datelabi.com" class="contact__item-value">analitica@datelabi.com</a>
           </div>
         </div>
-        <div class="contact-item">
-          <i class="ph ph-map-pin" aria-hidden="true"></i>
+        <div class="contact__item">
+          <div class="contact__icon-wrap">
+            <i class="ph ph-map-pin" aria-hidden="true"></i>
+          </div>
           <div>
-            <span class="contact-label" data-i18n="contact.location_label">Ubicación</span>
-            <span class="contact-value" data-i18n="contact.location_value">Barranquilla, Colombia</span>
+            <span class="contact__item-label" data-i18n="contact.location_label">Ubicación</span>
+            <span class="contact__item-value" data-i18n="contact.location_value">Barranquilla, Colombia</span>
           </div>
         </div>
       </div>
 
-      <div class="contact-form">
+      <div class="contact__form">
         <form action="#" method="POST">
-          <!-- Aquí mantenemos tu estructura de dos columnas -->
-          <div class="form-row">
-            <div class="form-column">
-              <div class="form-group">
-                <label for="name" data-i18n="contact.form_name_label">Nombre Completo</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre" data-i18n-placeholder="contact.form_name_placeholder" required>
-              </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="name" class="form__label" data-i18n="contact.form_name_label">Nombre Completo</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Tu nombre" data-i18n-placeholder="contact.form_name_placeholder" required>
             </div>
-            <div class="form-column">
-              <div class="form-group">
-                <label for="email" data-i18n="contact.form_email_label">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="tu@correo.com" data-i18n-placeholder="contact.form_email_placeholder" required>
-              </div>
+            <div class="form__group">
+              <label for="email" class="form__label" data-i18n="contact.form_email_label">Correo Electrónico</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="tu@correo.com" data-i18n-placeholder="contact.form_email_placeholder" required>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="subject" data-i18n="contact.form_subject_label">Asunto</label>
-            <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" data-i18n-placeholder="contact.form_subject_placeholder" required>
+          <div class="form__group">
+            <label for="subject" class="form__label" data-i18n="contact.form_subject_label">Asunto</label>
+            <input type="text" id="subject" name="subject" class="form__input" placeholder="¿En qué podemos ayudarte?" data-i18n-placeholder="contact.form_subject_placeholder" required>
           </div>
-          <div class="form-group">
-            <label for="message" data-i18n="contact.form_message_label">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." data-i18n-placeholder="contact.form_message_placeholder" required></textarea>
+          <div class="form__group">
+            <label for="message" class="form__label" data-i18n="contact.form_message_label">Mensaje</label>
+            <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Cuéntanos sobre tu proyecto..." data-i18n-placeholder="contact.form_message_placeholder" required></textarea>
           </div>
           
-          <!-- Sección del Captcha -->
-          <div class="form-group captcha-group">
-            <div class="captcha-box">
-              <input type="checkbox" id="robot" name="robot" required>
-              <label for="robot" data-i18n="contact.form_robot_label">No soy un robot</label>
-            </div>
-            <img src="./assets/img/captcha.png" alt="reCAPTCHA" class="captcha-img">
+          <div class="form__group--recaptcha">
+            <div class="g-recaptcha" data-sitekey="tu-clave-aqui"></div>
+            <label class="form__disclaimer">
+              <span data-i18n="contact.form_robot_label">No soy un robot</span>
+            </label>
           </div>
 
           <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit_button">Enviar Mensaje</button>
