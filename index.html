@@ -41,12 +41,11 @@
         <span class="logo__text">Datela <strong>BI</strong></span>
       </a>
 
-      <!-- Nav Links -->
-      <nav class="navbar__links" id="navLinks" aria-label="Menú principal">
-        <a href="#quienes-somos" class="nav-link">¿Quiénes Somos?</a>
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#equipo" class="nav-link">Equipo</a>
-        <a href="#contacto" class="nav-link">Contáctenos</a>
+     <nav class="navbar__links" id="navLinks">
+        <a href="#quienes-somos" class="nav-link" data-i18n="nav.quienes">¿Quiénes Somos?</a>
+        <a href="#servicios" class="nav-link" data-i18n="nav.servicios">Servicios</a>
+        <a href="#equipo" class="nav-link" data-i18n="nav.equipo">Equipo</a>
+        <a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contáctenos</a>
       </nav>
 
       <!-- Right Controls -->
@@ -67,69 +66,40 @@
   <!-- ===========================
        HERO SECTION
   ============================ -->
-  <section class="hero" id="inicio">
-    <!-- Animated background grid -->
-    <div class="hero__grid" aria-hidden="true"></div>
-    <!-- Floating orbs -->
-    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-
+ <section class="hero" id="inicio">
     <div class="container hero__content">
-      <div class="hero__badge animate-fade-up">
-        <span class="badge__dot"></span>
-        Business Intelligence &amp; Analytics
-      </div>
-      <h1 class="hero__title animate-fade-up delay-1">
-        Transforma tus datos<br />
-        en <span class="text-highlight">decisiones estratégicas</span>
-      </h1>
-      <p class="hero__subtitle animate-fade-up delay-2">
-        [Inserta aquí la propuesta de valor corta]
+      <h1 class="hero__title" data-i18n="hero.title">Transforma tus datos en decisiones estratégicas</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">
+        En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
       </p>
-      <div class="hero__actions animate-fade-up delay-3">
-        <a href="#servicios" class="btn btn--primary">
-          Más información
-          <i class="ph ph-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a href="#quienes-somos" class="btn btn--ghost">Conocer la empresa</a>
-      </div>
-
-      <!-- Stats row -->
-      <div class="hero__stats animate-fade-up delay-4">
+      <div class="hero__stats">
         <div class="stat">
-          <span class="stat__value">+[N]</span>
-          <span class="stat__label">Proyectos entregados</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat__value">+[N]</span>
-          <span class="stat__label">Clientes satisfechos</span>
-        </div>
-        <div class="stat__divider" aria-hidden="true"></div>
-        <div class="stat">
-          <span class="stat__value">[N]+</span>
-          <span class="stat__label">Años de experiencia</span>
+          <span class="stat__value">23+</span>
+          <span class="stat__label" data-i18n="hero.stat2-label">Años de experiencia</span>
         </div>
       </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="hero__scroll" aria-hidden="true">
-      <span class="scroll__line"></span>
     </div>
   </section>
 
   <!-- ===========================
        QUIÉNES SOMOS — ACORDEÓN
   ============================ -->
-  <section class="section section--light" id="quienes-somos">
+   <section class="section section--light" id="quienes-somos">
     <div class="container">
 
       <div class="section__header animate-on-scroll">
-        <span class="section__label">La empresa</span>
-        <h2 class="section__title">¿Quiénes Somos?</h2>
-        <p class="section__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <span class="section__label" data-i18n="about.label">La empresa</span>
+        <h2 class="section__title" data-i18n="about.title">¿Quiénes Somos?</h2>
+        <p class="section__desc" data-i18n="about.desc">
+         
+Somos un grupo de expertos en analítica, tecnologías, procesos y
+asesores en naturaleza de negocios que nos permite brindarle
+servicios para capitalizar eficiente y eficazmente sus datos.
+
+Convertiremos sus datos en su principal activo para tomas
+oportunas de decisiones y desarrollo de planes estratégicos
+encaminados a optimizar costos, maximizar ventas y utilidades,
+fidelizar clientes e incrementar la participación en el mercado.
         </p>
       </div>
 
@@ -139,14 +109,14 @@
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-1" id="acc-btn-1">
             <span class="accordion__number">01</span>
-            <span class="accordion__title">Propósito</span>
+            <span class="accordion__title" data-i18n="acc.title1">Propósito</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-btn-1" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body1">
+              <p>Impulsar organizaciones más inteligentes mediante el uso estratégico de los datos, transformando la información en conocimiento que genere mejores decisiones, eficiencia y crecimiento sostenible.</p>
             </div>
           </div>
         </div>
@@ -155,14 +125,14 @@
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-2" id="acc-btn-2">
             <span class="accordion__number">02</span>
-            <span class="accordion__title">Misión</span>
+            <span class="accordion__title" data-i18n="acc.title2">Misión</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-btn-2" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body2">
+              <p>En Datela BI desarrollamos soluciones de inteligencia de negocios, analítica empresarial, inteligencia artificial y gestión de datos, que permiten a las organizaciones transformar grandes volúmenes de información en conocimiento estratégico, optimizando la toma de decisiones, mejorando el desempeño empresarial y generando valor a través de la innovación tecnológica.</p>
             </div>
           </div>
         </div>
@@ -171,30 +141,37 @@
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-3" id="acc-btn-3">
             <span class="accordion__number">03</span>
-            <span class="accordion__title">Visión</span>
+            <span class="accordion__title"  data-i18n="acc.title3">Visión</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-btn-3" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body3">
+              <p>Para el año 2030, Datela BI será reconocida como una empresa líder en América Latina en soluciones de analítica avanzada, inteligencia de negocios e inteligencia artificial, impulsando la transformación digital de las organizaciones mediante el uso estratégico de los datos y el desarrollo de soluciones tecnológicas innovadoras.</p>
             </div>
           </div>
         </div>
 
-        <!-- Item 4 -->
+              <!-- Item 4 -->
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-4" id="acc-btn-4">
             <span class="accordion__number">04</span>
-            <span class="accordion__title">Valores</span>
+            <span class="accordion__title" data-i18n="acc.title4">Valores</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-btn-4" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body4">
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><strong>• Innovación:</strong> Promovemos el uso de nuevas tecnologías y metodologías para generar soluciones analíticas de alto impacto.</li>
+                <li style="margin-bottom: 15px;"><strong>• Integridad:</strong> Actuamos con ética, transparencia y responsabilidad en el manejo de la información y en nuestras relaciones comerciales.</li>
+                <li style="margin-bottom: 15px;"><strong>• Orientación al cliente:</strong> Comprendemos las necesidades de cada organización para ofrecer soluciones analíticas que generen valor real.</li>
+                <li style="margin-bottom: 15px;"><strong>• Excelencia:</strong> Buscamos altos estándares de calidad en cada proyecto, servicio y solución tecnológica que desarrollamos.</li>
+                <li style="margin-bottom: 15px;"><strong>• Aprendizaje continuo:</strong> Fomentamos la actualización permanente en tecnologías de datos, analítica e inteligencia artificial.</li>
+                <li><strong>• Colaboración:</strong> Promovemos el trabajo en equipo y la cooperación con clientes y aliados estratégicos.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -203,14 +180,14 @@
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-5" id="acc-btn-5">
             <span class="accordion__number">05</span>
-            <span class="accordion__title">Propuesta de valor</span>
+            <span class="accordion__title" data-i18n="acc.title5">Propuesta de valor</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-5" role="region" aria-labelledby="acc-btn-5" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body5">
+              <p>En <strong>Datela BI</strong> ayudamos a las organizaciones a convertir datos en decisiones inteligentes, integrando herramientas de inteligencia de negocios, analítica avanzada e inteligencia artificial para mejorar la eficiencia operativa, identificar oportunidades de negocio y fortalecer la competitividad empresarial.</p>
             </div>
           </div>
         </div>
@@ -219,14 +196,21 @@
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-6" id="acc-btn-6">
             <span class="accordion__number">06</span>
-            <span class="accordion__title">Enfoque estratégico</span>
+            <span class="accordion__title" data-i18n="acc.title6">Enfoque estratégico</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-6" role="region" aria-labelledby="acc-btn-6" hidden>
-            <div class="accordion__body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="accordion__body" data-i18n="acc.body6">
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><strong>• Inteligencia de Negocios (Business Intelligence):</strong> Diseño e implementación de plataformas de BI para la visualización y análisis de información empresarial mediante tableros de control e indicadores estratégicos.</li>
+                <li style="margin-bottom: 15px;"><strong>• Analítica de datos y analítica avanzada:</strong> Análisis descriptivo, predictivo y prescriptivo para apoyar la toma de decisiones basadas en datos.</li>
+                <li style="margin-bottom: 15px;"><strong>• Inteligencia Artificial aplicada a negocios:</strong> Desarrollo de modelos de aprendizaje automático y automatización de procesos analíticos para mejorar la eficiencia empresarial.</li>
+                <li style="margin-bottom: 15px;"><strong>• Ingeniería y gestión de datos:</strong> Integración, procesamiento y gestión de grandes volúmenes de datos provenientes de múltiples fuentes.</li>
+                <li style="margin-bottom: 15px;"><strong>• Desarrollo de software analítico:</strong> Diseño y desarrollo de soluciones tecnológicas personalizadas para la explotación y análisis de datos.</li>
+                <li><strong>• Consultoría y asesoría en analítica empresarial:</strong> Acompañamiento estratégico a empresas en procesos de transformación digital y cultura de datos.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -295,7 +279,7 @@
   <!-- ===========================
        EQUIPO
   ============================ -->
-  <section class="section section--light" id="equipo">
+   <section class="section section--light" id="equipo">
     <div class="container">
 
       <div class="section__header animate-on-scroll">
@@ -307,22 +291,26 @@
 
         <!-- Photo -->
         <div class="team__photo-wrap">
-          <div class="team__photo-placeholder" role="img" aria-label="Foto de Ing. Roque Maldonado Insignares">
-            <i class="ph ph-user-circle team__photo-icon" aria-hidden="true"></i>
-            <span class="team__photo-label">Foto del profesional</span>
-          </div>
-        </div>
+  <!-- Usamos el nombre exacto de la imagen de WhatsApp -->
+  <img src="WhatsApp%20Image%202026-06-25%20at%2020.45.55.jpeg" 
+       alt="Ing. Roque Maldonado Insignares" 
+       style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid #00A4E4; background: #0B2046;">
+</div>
 
         <!-- Info -->
         <div class="team__info">
-          <span class="team__role">Fundador &amp; Líder Técnico</span>
-          <h3 class="team__name">Ing. Roque Maldonado Insignares</h3>
+          <span class="team__role" data-i18n="team.ceo_role">Fundador & CEO</span>
+          <h3 class="team__name" data-i18n="team.ceo_name">Ing. Roque Maldonado Insignares</h3>
           <span class="team__credential">
-            <i class="ph ph-seal-check" aria-hidden="true"></i>
-            Científico de Datos — MinTIC
-          </span>
-          <p class="team__bio">
-            [Inserta aquí la experiencia y perfil profesional]
+  <i class="ph ph-seal-check" aria-hidden="true"></i>
+  <span>Científico de Datos — MinTIC</span>
+</span>
+
+          <p class="team__bio" data-i18n="team.ceo_bio">
+            [Científico de datos (MinTIC). ROQUE MALDONADO INSIGNARES. Barranquilla. Ingeniero de Sistemas, especialista Gerencia en Sistemas de Información, científico de Datos MinTIC, Lider IA, arquitecto de soluciones enfocado en la orquestación de ecosistemas autónomos de decisión y la democratización analítica. Combina su liderazgo empresarial corporativo durante 32 años con una sólida trayectoria de más de 21 años como docente universitario y representante del sector externo en el comité curricular de Ciencia de Datos de la Universidad del Norte. Líder de Data Inspirers Community. CEO fundador de Datela BI SAS.   Se desempeña como Director Nacional de BI en Olímpica S.A., donde ha liderado la creación de una cultura data-driven, el proyecto de Transformación Analítica Organizacional (TAO) y la migración a la nube. Cuenta con un historial comprobado de retornos tangibles, optimización integral del abastecimiento y creador de herramienta IA inteligencia competitiva de precios. Además, impulsa el crecimiento empresarial mediante el apoyo estratégico impulsando al análisis profundo de datos, la automatización de procesos y el descubrimiento de información de alto impacto. Nivel avanzado en ecosistemas Qlik integrados en arquitecturas AWS (S3, Redshift, Glue, EC2) y orquestación con Apache Airflow. Experiencia profunda en desarrollo de procesos ETL y modelos analíticos avanzados (hipersegmentación RFM, Churn, implementación agentes y lenguaje natural). Dominio de tecnologías emergentes y flujos de trabajo IA, incluyendo técnicas de vibecoding e ingeniería de prompting, utilizando herramientas como Click House,
+Gemini, Lovable, n8n, Apify y Canva para maximizar la productividad corporativa.
+Artículos publicados en Revista Ingeniare Unilibre: Inteligencia de Negocios (2010), Redes Neuronales Artificiales (2009).
+https://Www.youtube.com/watch?v=LQRn7QRfgnU]
           </p>
           <div class="team__social">
             <a href="#" class="social-btn" aria-label="LinkedIn de Roque Maldonado">
