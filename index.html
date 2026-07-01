@@ -24,12 +24,13 @@
   <!-- ===========================
        NAVEGACIÓN
   ============================ -->
- <header class="navbar" id="navbar">
+<header class="navbar" id="navbar">
     <div class="container navbar__inner">
 
       <!-- Logo -->
       <a href="#" class="navbar__logo" aria-label="Datela BI - Inicio">
-        <img src="./assets/img/logo datela.PNG" alt="Datela BI" class="navbar__logo-img" style="height: 40px; width: auto;">
+        <!-- He quitado el punto inicial de la ruta y añadido estilos de bloque para asegurar que cargue -->
+        <img src="assets/img/logo datela.PNG" alt="Datela BI" class="navbar__logo-img" style="display: block; height: 40px; width: auto; min-width: 150px; object-fit: contain;">
       </a>
 
      <nav class="navbar__links" id="navLinks">
@@ -42,7 +43,6 @@
       <!-- Right Controls -->
       <div class="navbar__controls">
         <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
-          <!-- He añadido onclick="setLanguage('es/en')" para que el cambio de idioma funcione al hacer clic -->
           <button class="lang-btn active" data-lang="es" aria-pressed="true" onclick="setLanguage('es')">ES</button>
           <span class="lang-divider" aria-hidden="true">|</span>
           <button class="lang-btn" data-lang="en" aria-pressed="false" onclick="setLanguage('en')">EN</button>
