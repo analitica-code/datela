@@ -53,37 +53,22 @@
   <!-- ===========================
        HERO SECTION
   ============================ -->
-<section class="hero" id="inicio">
-  <!-- Fondo con cuadrícula técnica -->
-  <div class="hero__grid-overlay"></div>
-  
-  <div class="container hero__content">
-    <!-- El distintivo azul de arriba -->
-    <div class="hero__badge animate-on-scroll">
-      <span class="badge__dot"></span>
-      <span class="badge__text">BUSINESS INTELLIGENCE & ANALYTICS</span>
-    </div>
-
-    <!-- Título en dos colores -->
-    <h1 class="hero__title animate-on-scroll">
-      Transforma tus datos   
-
-      <span class="text--gradient">en decisiones estratégicas</span>
-    </h1>
-
-    <!-- Subtítulo -->
-    <p class="hero__subtitle animate-on-scroll">
-      En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
-    </p>
-
-    <!-- Botones de acción -->
-    <div class="hero__actions animate-on-scroll">
-      <a href="#contacto" class="btn btn--primary">Comenzar ahora</a>
-      <a href="#servicios" class="btn btn--outline">Nuestros servicios</a>
-    </div>
-  </div>
-</section>
-
+    <section class="hero" id="inicio">
+      <div class="container hero__content">
+        <h1 class="hero__title animate-on-scroll" data-i18n="hero.title">
+          Transforma tus datos en decisiones estratégicas
+        </h1>
+        <p class="hero__subtitle animate-on-scroll" data-i18n="hero.subtitle">
+          En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
+        </p>
+        <div class="hero__stats animate-on-scroll">
+          <div class="hero__stat-item">
+            <span class="hero__stat-number">23+</span>
+            <span class="hero__stat-label" data-i18n="hero.stat2-label">Años de experiencia</span>
+          </div>
+        </div>
+      </div>
+    </section>
   
   <!-- ===========================
        QUIÉNES SOMOS — ACORDEÓN
@@ -434,92 +419,79 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
   <!-- ===========================
        CONTACTO
   ============================ -->
-  <section class="section section--dark" id="contacto">
-    <div class="container">
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge">LET'S TALK</span>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
 
-      <div class="section__header section__header--light animate-on-scroll">
-        <span class="section__label" data-i18n="contact.label">Hablemos</span>
-        <h2 class="section__title" data-i18n="contact.title">Contáctenos</h2>
-        <p class="section__desc">
-        
-        </p>
-      </div>
-
-      <div class="contact__layout">
-
-        <!-- Info column -->
-        <div class="contact__info animate-on-scroll">
-          <div class="contact__item">
-            <div class="contact__icon-wrap" aria-hidden="true">
-              <i class="ph ph-phone"></i>
-            </div>
-            <div>
-              <span class="contact__item-label" data-i18n="contact.phone">Teléfono</span>
-              <a href="tel:[Teléfono]" class="contact__item-value">[3006547315]</a>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__icon-wrap" aria-hidden="true">
-              <i class="ph ph-envelope"></i>
-            </div>
-            <div>
-              <span class="contact__item-label" data-i18n="contact.email">Correo electrónico</span>
-              <a href="mailto:[Correo]" class="contact__item-value">[analitica@datelabi.com]</a>
-            </div>
-          </div>
-          <div class="contact__item">
-            <div class="contact__icon-wrap" aria-hidden="true">
-              <i class="ph ph-map-pin"></i>
-            </div>
-            <div>
-              <span class="contact__item-label" data-i18n="contact.location">Ubicación</span>
-              <span class="contact__item-value" data-i18n="contact.city">[Barranquilla, Colombia]</span>
-            </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="ph ph-phone-call" aria-hidden="true"></i>
+          <div>
+            <span class="contact-label">TELÉFONO</span>
+            <a href="tel:+573006547315" class="contact-value">[3006547315]</a>
           </div>
         </div>
+        <div class="contact-item">
+          <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+          <div>
+            <span class="contact-label">CORREO ELECTRÓNICO</span>
+            <a href="mailto:analitica@datelabi.com" class="contact-value">[analitica@datelabi.com]</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="ph ph-map-pin" aria-hidden="true"></i>
+          <div>
+            <span class="contact-label">UBICACIÓN</span>
+            <span class="contact-value">[Barranquilla, Colombia]</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- Form column -->
-        <form class="contact__form" id="contactForm" novalidate>
-          <div class="form__row">
-            <div class="form__group">
-              <label for="name" class="form__label">Nombre completo</label>
-              <input type="text" id="name" name="name" class="form__input" placeholder="Tu nombre" required autocomplete="name" />
-              <span class="form__error" id="nameError"></span>
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="name">NOMBRE COMPLETO</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+              </div>
             </div>
-            <div class="form__group">
-              <label for="email" class="form__label">Correo electrónico</label>
-              <input type="email" id="email" name="email" class="form__input" placeholder="tu@correo.com" required autocomplete="email" />
-              <span class="form__error" id="emailError"></span>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="email">CORREO ELECTRÓNICO</label>
+                <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+              </div>
             </div>
           </div>
-          <div class="form__group">
-            <label for="subject" class="form__label">Asunto</label>
-            <input type="text" id="subject" name="subject" class="form__input" placeholder="¿En qué podemos ayudarte?" required />
-              <span class="form__error" id="subjectError"></span>
+
+          <div class="form-group">
+            <label for="subject">ASUNTO</label>
+            <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" required>
           </div>
-          <div class="form__group">
-            <label for="message" class="form__label">Mensaje</label>
-            <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
-            <span class="form__error" id="messageError"></span>
+          <div class="form-group">
+            <label for="message">MENSAJE</label>
+            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+          </div>
+          
+          <div class="form-group captcha-group">
+            <div class="captcha-box">
+              <input type="checkbox" id="robot" name="robot" required>
+              <label for="robot">No soy un robot</label>
+            </div>
+            <img src="./assets/img/captcha.png" alt="reCAPTCHA" class="captcha-img">
           </div>
 
-          <!-- reCAPTCHA v2 -->
-          <div class="form__group form__group--recaptcha">
-            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark" data-size="normal"></div>
-            <span class="form__error" id="recaptchaError"></span>
-          </div>
-
-          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
-            Enviar mensaje
-            <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i>
-          </button>
-          <p class="form__notice" id="formNotice" aria-live="polite" role="alert"></p>
-          <p class="form__disclaimer">Protegido por reCAPTCHA y sujeto a la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad</a> y <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de servicio</a> de Google.</p>
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
-
-      </div><!-- /contact__layout -->
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ===========================
        FOOTER
