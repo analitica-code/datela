@@ -24,52 +24,101 @@
   <!-- ===========================
        NAVEGACIÓN
   ============================ -->
-   <header class="navbar" id="navbar">
+  <header class="navbar" id="navbar">
     <div class="container navbar__inner">
-              <a href="#" class="navbar__logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-        <!-- La Imagen -->
-        <img src="logo datela.PNG" alt="Logo" style="height: 40px; width: auto; display: block;">
-        <!-- El Texto -->
-        <span class="logo__text" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: white; font-weight: 400; letter-spacing: -0.5px;">
-          Datela <strong style="color: #00A4E4; font-weight: 800;">BI</strong>
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo" aria-label="Datela BI - Inicio">
+        <span class="logo__icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#00A4E4"/>
+            <path d="M8 22 L16 10 L24 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="10" r="2.5" fill="white"/>
+            <circle cx="8" cy="22" r="2.5" fill="white"/>
+            <circle cx="24" cy="22" r="2.5" fill="white"/>
+          </svg>
         </span>
+        <span class="logo__text">Datela <strong>BI</strong></span>
       </a>
-      <nav class="navbar__links" id="navLinks">
-        <a href="#quienes-somos" class="nav-link" data-i18n="nav.quienes">¿Quiénes Somos?</a>
-        <a href="#servicios" class="nav-link" data-i18n="nav.servicios">Servicios</a>
-        <a href="#equipo" class="nav-link" data-i18n="nav.equipo">Equipo</a>
-        <a href="#contacto" class="nav-link" data-i18n="nav.contacto">Contáctenos</a>
+
+      <!-- Nav Links -->
+      <nav class="navbar__links" id="navLinks" aria-label="Menú principal">
+        <a href="#quienes-somos" class="nav-link">¿Quiénes Somos?</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#equipo" class="nav-link">Equipo</a>
+        <a href="#contacto" class="nav-link">Contáctenos</a>
       </nav>
+
+      <!-- Right Controls -->
       <div class="navbar__controls">
-        <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn active" data-lang="es">ES</button>
-          <span style="color: white; opacity: 0.3;">|</span>
-          <button class="lang-btn" data-lang="en">EN</button>
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-divider" aria-hidden="true">|</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+
     </div>
   </header>
 
   <!-- ===========================
        HERO SECTION
   ============================ -->
-    <section class="hero" id="inicio">
-      <div class="container hero__content">
-        <h1 class="hero__title animate-on-scroll" data-i18n="hero.title">
-          Transforma tus datos en decisiones estratégicas
-        </h1>
-        <p class="hero__subtitle animate-on-scroll" data-i18n="hero.subtitle">
-          En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
-        </p>
-        <div class="hero__stats animate-on-scroll">
-          <div class="hero__stat-item">
-            <span class="hero__stat-number">23+</span>
-            <span class="hero__stat-label" data-i18n="hero.stat2-label">Años de experiencia</span>
-          </div>
+  <section class="hero" id="inicio">
+    <!-- Animated background grid -->
+    <div class="hero__grid" aria-hidden="true"></div>
+    <!-- Floating orbs -->
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+    <div class="container hero__content">
+      <div class="hero__badge animate-fade-up">
+        <span class="badge__dot"></span>
+        Business Intelligence &amp; Analytics
+      </div>
+      <h1 class="hero__title animate-fade-up delay-1">
+        Transforma tus datos<br />
+        en <span class="text-highlight">decisiones estratégicas</span>
+      </h1>
+      <p class="hero__subtitle animate-fade-up delay-2">
+        [Inserta aquí la propuesta de valor corta]
+      </p>
+      <div class="hero__actions animate-fade-up delay-3">
+        <a href="#servicios" class="btn btn--primary">
+          Más información
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="#quienes-somos" class="btn btn--ghost">Conocer la empresa</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero__stats animate-fade-up delay-4">
+        <div class="stat">
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Proyectos entregados</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Clientes satisfechos</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">[N]+</span>
+          <span class="stat__label">Años de experiencia</span>
         </div>
       </div>
-    </section>
-  
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="scroll__line"></span>
+    </div>
+  </section>
+
   <!-- ===========================
        QUIÉNES SOMOS — ACORDEÓN
   ============================ -->
@@ -77,18 +126,10 @@
     <div class="container">
 
       <div class="section__header animate-on-scroll">
-        <span class="section__label" data-i18n="about.label">La empresa</span>
-        <h2 class="section__title" data-i18n="about.title">¿Quiénes Somos?</h2>
-        <p class="section__desc" data-i18n="about.desc">
-         
-Somos un grupo de expertos en analítica, tecnologías, procesos y
-asesores en naturaleza de negocios que nos permite brindarle
-servicios para capitalizar eficiente y eficazmente sus datos.
-
-Convertiremos sus datos en su principal activo para tomas
-oportunas de decisiones y desarrollo de planes estratégicos
-encaminados a optimizar costos, maximizar ventas y utilidades,
-fidelizar clientes e incrementar la participación en el mercado.
+        <span class="section__label">La empresa</span>
+        <h2 class="section__title">¿Quiénes Somos?</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
 
@@ -98,14 +139,14 @@ fidelizar clientes e incrementar la participación en el mercado.
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-1" id="acc-btn-1">
             <span class="accordion__number">01</span>
-            <span class="accordion__title" data-i18n="acc.title1">Propósito</span>
+            <span class="accordion__title">Propósito</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-btn-1" hidden>
-            <div class="accordion__body" data-i18n="acc.body1">
-              <p>Impulsar organizaciones más inteligentes mediante el uso estratégico de los datos, transformando la información en conocimiento que genere mejores decisiones, eficiencia y crecimiento sostenible.</p>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
@@ -114,14 +155,14 @@ fidelizar clientes e incrementar la participación en el mercado.
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-2" id="acc-btn-2">
             <span class="accordion__number">02</span>
-            <span class="accordion__title" data-i18n="acc.title2">Misión</span>
+            <span class="accordion__title">Misión</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-btn-2" hidden>
-            <div class="accordion__body" data-i18n="acc.body2">
-              <p>En Datela BI desarrollamos soluciones de inteligencia de negocios, analítica empresarial, inteligencia artificial y gestión de datos, que permiten a las organizaciones transformar grandes volúmenes de información en conocimiento estratégico, optimizando la toma de decisiones, mejorando el desempeño empresarial y generando valor a través de la innovación tecnológica.</p>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
@@ -130,37 +171,30 @@ fidelizar clientes e incrementar la participación en el mercado.
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-3" id="acc-btn-3">
             <span class="accordion__number">03</span>
-            <span class="accordion__title"  data-i18n="acc.title3">Visión</span>
+            <span class="accordion__title">Visión</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-btn-3" hidden>
-            <div class="accordion__body" data-i18n="acc.body3">
-              <p>Para el año 2030, Datela BI será reconocida como una empresa líder en América Latina en soluciones de analítica avanzada, inteligencia de negocios e inteligencia artificial, impulsando la transformación digital de las organizaciones mediante el uso estratégico de los datos y el desarrollo de soluciones tecnológicas innovadoras.</p>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
 
-              <!-- Item 4 -->
+        <!-- Item 4 -->
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-4" id="acc-btn-4">
             <span class="accordion__number">04</span>
-            <span class="accordion__title" data-i18n="acc.title4">Valores</span>
+            <span class="accordion__title">Valores</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-btn-4" hidden>
-            <div class="accordion__body" data-i18n="acc.body4">
-              <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><strong>• Innovación:</strong> Promovemos el uso de nuevas tecnologías y metodologías para generar soluciones analíticas de alto impacto.</li>
-                <li style="margin-bottom: 15px;"><strong>• Integridad:</strong> Actuamos con ética, transparencia y responsabilidad en el manejo de la información y en nuestras relaciones comerciales.</li>
-                <li style="margin-bottom: 15px;"><strong>• Orientación al cliente:</strong> Comprendemos las necesidades de cada organización para ofrecer soluciones analíticas que generen valor real.</li>
-                <li style="margin-bottom: 15px;"><strong>• Excelencia:</strong> Buscamos altos estándares de calidad en cada proyecto, servicio y solución tecnológica que desarrollamos.</li>
-                <li style="margin-bottom: 15px;"><strong>• Aprendizaje continuo:</strong> Fomentamos la actualización permanente en tecnologías de datos, analítica e inteligencia artificial.</li>
-                <li><strong>• Colaboración:</strong> Promovemos el trabajo en equipo y la cooperación con clientes y aliados estratégicos.</li>
-              </ul>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
@@ -169,14 +203,14 @@ fidelizar clientes e incrementar la participación en el mercado.
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-5" id="acc-btn-5">
             <span class="accordion__number">05</span>
-            <span class="accordion__title" data-i18n="acc.title5">Propuesta de valor</span>
+            <span class="accordion__title">Propuesta de valor</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-5" role="region" aria-labelledby="acc-btn-5" hidden>
-            <div class="accordion__body" data-i18n="acc.body5">
-              <p>En <strong>Datela BI</strong> ayudamos a las organizaciones a convertir datos en decisiones inteligentes, integrando herramientas de inteligencia de negocios, analítica avanzada e inteligencia artificial para mejorar la eficiencia operativa, identificar oportunidades de negocio y fortalecer la competitividad empresarial.</p>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
@@ -185,21 +219,14 @@ fidelizar clientes e incrementar la participación en el mercado.
         <div class="accordion__item animate-on-scroll" role="listitem">
           <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-6" id="acc-btn-6">
             <span class="accordion__number">06</span>
-            <span class="accordion__title" data-i18n="acc.title6">Enfoque estratégico</span>
+            <span class="accordion__title">Enfoque estratégico</span>
             <span class="accordion__icon" aria-hidden="true">
               <i class="ph ph-plus"></i>
             </span>
           </button>
           <div class="accordion__panel" id="acc-6" role="region" aria-labelledby="acc-btn-6" hidden>
-            <div class="accordion__body" data-i18n="acc.body6">
-              <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><strong>• Inteligencia de Negocios (Business Intelligence):</strong> Diseño e implementación de plataformas de BI para la visualización y análisis de información empresarial mediante tableros de control e indicadores estratégicos.</li>
-                <li style="margin-bottom: 15px;"><strong>• Analítica de datos y analítica avanzada:</strong> Análisis descriptivo, predictivo y prescriptivo para apoyar la toma de decisiones basadas en datos.</li>
-                <li style="margin-bottom: 15px;"><strong>• Inteligencia Artificial aplicada a negocios:</strong> Desarrollo de modelos de aprendizaje automático y automatización de procesos analíticos para mejorar la eficiencia empresarial.</li>
-                <li style="margin-bottom: 15px;"><strong>• Ingeniería y gestión de datos:</strong> Integración, procesamiento y gestión de grandes volúmenes de datos provenientes de múltiples fuentes.</li>
-                <li style="margin-bottom: 15px;"><strong>• Desarrollo de software analítico:</strong> Diseño y desarrollo de soluciones tecnológicas personalizadas para la explotación y análisis de datos.</li>
-                <li><strong>• Consultoría y asesoría en analítica empresarial:</strong> Acompañamiento estratégico a empresas en procesos de transformación digital y cultura de datos.</li>
-              </ul>
+            <div class="accordion__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
           </div>
         </div>
@@ -208,110 +235,62 @@ fidelizar clientes e incrementar la participación en el mercado.
     </div>
   </section>
 
-       <!-- ===========================
-         SERVICIOS (CON FONDO AZUL Y AMPLIACIÓN DE IMAGEN)
-    ============================ -->
-      <style>
-      /* Estilos específicos para esta sección */
-      #servicios {
-        background-color: #0B2046 !important;
-        color: white !important;
-        padding: 80px 0;
-      }
-      .service-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: 0.3s;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .service-card:hover {
-        transform: translateY(-10px);
-        border-color: #00A4E4;
-        background: rgba(255, 255, 255, 0.1);
-      }
-      .service-card__img-container {
-        cursor: zoom-in;
-        overflow: hidden;
-        border-radius: 12px;
-        height: 350px; /* Aumentamos la altura ya que no hay texto */
-        background: #071530;
-      }
-      .service-card__img-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s;
-      }
-      .service-card__img-container:hover img {
-        transform: scale(1.05);
-      }
-      /* Estilos para el visor de imagen ampliada */
-      .lightbox-overlay {
-        display: none;
-        position: fixed;
-        z-index: 99999;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        justify-content: center;
-        align-items: center;
-        cursor: zoom-out;
-      }
-      .lightbox-overlay img {
-        max-width: 95%;
-        max-height: 95%;
-        border-radius: 8px;
-        box-shadow: 0 0 40px rgba(0,0,0,0.8);
-      }
-    </style>
+  <!-- ===========================
+       SERVICIOS — GRID
+  ============================ -->
+  <section class="section section--dark" id="servicios">
+    <div class="container">
 
-    <section class="section" id="servicios">
-      <div class="container">
-        <div class="section__header animate-on-scroll" style="text-align: center; margin-bottom: 50px;">
-          <span class="section__label" data-i18n="services.label" style="color: #00A4E4; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Lo que hacemos</span>
-          <h2 class="section__title" data-i18n="services.title" style="color: white; font-size: 2.5rem; margin-top: 10px;">Servicios</h2>
-        </div>
-
-        <div class="services__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-          
-          <!-- Servicio 1 -->
-          <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 1 s.png'; document.getElementById('lb-overlay').style.display='flex'">
-              <img src="Captura de pantalla 1 s.png" alt="Servicio 1">
-            </div>
-          </div>
-
-          <!-- Servicio 2 -->
-          <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 2s.png'; document.getElementById('lb-overlay').style.display='flex'">
-              <img src="Captura de pantalla 2s.png" alt="Servicio 2">
-            </div>
-          </div>
-
-          <!-- Servicio 3 -->
-          <div class="service-card animate-on-scroll">
-            <div class="service-card__img-container" onclick="document.getElementById('lb-img').src='Captura de pantalla 3s.png'; document.getElementById('lb-overlay').style.display='flex'">
-              <img src="Captura de pantalla 3s.png" alt="Servicio 3">
-            </div>
-          </div>
-
-        </div>
+      <div class="section__header section__header--light animate-on-scroll">
+        <span class="section__label">Lo que hacemos</span>
+        <h2 class="section__title">Servicios</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        </p>
       </div>
-    </section>
 
-    <!-- Visor de imagen ampliada (Lightbox) -->
-    <div id="lb-overlay" class="lightbox-overlay" onclick="this.style.display='none'">
-      <img id="lb-img" src="" alt="Imagen ampliada">
-      <div style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-family: Arial;">&times;</div>
+      <div class="services__grid">
+
+        <!-- Card 1 -->
+        <article class="service-card animate-on-scroll">
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-chart-line-up service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 1</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="service-card service-card--featured animate-on-scroll">
+          <div class="service-card__badge">Destacado</div>
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-database service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 2</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="service-card animate-on-scroll">
+          <div class="service-card__icon-wrap" aria-hidden="true">
+            <i class="ph ph-brain service-card__icon"></i>
+          </div>
+          <h3 class="service-card__title">Servicio 3</h3>
+          <p class="service-card__desc">[Breve descripción del servicio aquí]</p>
+          <a href="#contacto" class="service-card__link">
+            Saber más <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+
+      </div><!-- /services__grid -->
     </div>
+  </section>
 
   <!-- ===========================
        EQUIPO
@@ -328,26 +307,22 @@ fidelizar clientes e incrementar la participación en el mercado.
 
         <!-- Photo -->
         <div class="team__photo-wrap">
-  <!-- Usamos el nombre exacto de la imagen de WhatsApp -->
-  <img src="WhatsApp%20Image%202026-06-25%20at%2020.45.55.jpeg" 
-       alt="Ing. Roque Maldonado Insignares" 
-       style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid #00A4E4; background: #0B2046;">
-</div>
+          <div class="team__photo-placeholder" role="img" aria-label="Foto de Ing. Roque Maldonado Insignares">
+            <i class="ph ph-user-circle team__photo-icon" aria-hidden="true"></i>
+            <span class="team__photo-label">Foto del profesional</span>
+          </div>
+        </div>
 
         <!-- Info -->
         <div class="team__info">
-          <span class="team__role" data-i18n="team.ceo_role">Fundador & CEO</span>
-          <h3 class="team__name" data-i18n="team.ceo_name">Ing. Roque Maldonado Insignares</h3>
+          <span class="team__role">Fundador &amp; Líder Técnico</span>
+          <h3 class="team__name">Ing. Roque Maldonado Insignares</h3>
           <span class="team__credential">
-  <i class="ph ph-seal-check" aria-hidden="true"></i>
-  <span>Científico de Datos — MinTIC</span>
-</span>
-
-          <p class="team__bio" data-i18n="team.ceo_bio">
-            [Científico de datos (MinTIC). ROQUE MALDONADO INSIGNARES. Barranquilla. Ingeniero de Sistemas, especialista Gerencia en Sistemas de Información, científico de Datos MinTIC, Lider IA, arquitecto de soluciones enfocado en la orquestación de ecosistemas autónomos de decisión y la democratización analítica. Combina su liderazgo empresarial corporativo durante 32 años con una sólida trayectoria de más de 21 años como docente universitario y representante del sector externo en el comité curricular de Ciencia de Datos de la Universidad del Norte. Líder de Data Inspirers Community. CEO fundador de Datela BI SAS.   Se desempeña como Director Nacional de BI en Olímpica S.A., donde ha liderado la creación de una cultura data-driven, el proyecto de Transformación Analítica Organizacional (TAO) y la migración a la nube. Cuenta con un historial comprobado de retornos tangibles, optimización integral del abastecimiento y creador de herramienta IA inteligencia competitiva de precios. Además, impulsa el crecimiento empresarial mediante el apoyo estratégico impulsando al análisis profundo de datos, la automatización de procesos y el descubrimiento de información de alto impacto. Nivel avanzado en ecosistemas Qlik integrados en arquitecturas AWS (S3, Redshift, Glue, EC2) y orquestación con Apache Airflow. Experiencia profunda en desarrollo de procesos ETL y modelos analíticos avanzados (hipersegmentación RFM, Churn, implementación agentes y lenguaje natural). Dominio de tecnologías emergentes y flujos de trabajo IA, incluyendo técnicas de vibecoding e ingeniería de prompting, utilizando herramientas como Click House,
-Gemini, Lovable, n8n, Apify y Canva para maximizar la productividad corporativa.
-Artículos publicados en Revista Ingeniare Unilibre: Inteligencia de Negocios (2010), Redes Neuronales Artificiales (2009).
-https://Www.youtube.com/watch?v=LQRn7QRfgnU]
+            <i class="ph ph-seal-check" aria-hidden="true"></i>
+            Científico de Datos — MinTIC
+          </span>
+          <p class="team__bio">
+            [Inserta aquí la experiencia y perfil profesional]
           </p>
           <div class="team__social">
             <a href="#" class="social-btn" aria-label="LinkedIn de Roque Maldonado">
@@ -366,132 +341,125 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
     </div>
   </section>
 
-        <!-- ===========================
-         ALIADOS & CLIENTES
-    ============================ -->
-  <section class="section section--marquee">
-  <div class="container">
-    <div class="section__header animate-on-scroll" style="text-align: center; margin-bottom: 40px;">
-      <span class="section__label" data-i18n="partners.label">Confianza</span>
-      <h2 class="section__title" data-i18n="partners.title">Aliados & Clientes</h2>
-    </div>
-  </div>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <!-- Logo 1: DATECSA -->
-      <div class="marquee__item">
-        <img src="Logo%20Datecsa%202.png" alt="Logo Datecsa" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-      
-      <!-- Logo 2: Ferrara -->
-      <div class="marquee__item">
-        <img src="ferrara.PNG" alt="Ferrara" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-
-      <!-- Logo 3: eSmart -->
-      <div class="marquee__item">
-        <img src="eSmart.PNG" alt="eSmart" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-
-      <!-- Logo 4: Ministerio Rep. Dom. -->
-      <div class="marquee__item">
-        <img src="ministerio%20republica%20dom.PNG" alt="Ministerio Rep. Dom." style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-
-      <!-- REPETICIÓN PARA EL LOOP INFINITO (Importante para que no se vea el salto) -->
-      <div class="marquee__item">
-        <img src="Logo%20Datecsa%202.png" alt="Logo Datecsa" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-      <div class="marquee__item">
-        <img src="ferrara.PNG" alt="Ferrara" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-      <div class="marquee__item">
-        <img src="eSmart.PNG" alt="eSmart" style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
-      </div>
-      <div class="marquee__item">
-        <img src="ministerio%20republica%20dom.PNG" alt="Ministerio Rep. Dom." style="max-height: 80px; width: auto; display: block; margin: 0 auto;">
+  <!-- ===========================
+       ALIADOS — MARQUESINA
+  ============================ -->
+  <section class="section section--mid" id="aliados">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <span class="section__label">Confianza</span>
+        <h2 class="section__title">Aliados &amp; Clientes</h2>
       </div>
     </div>
-  </div>
-</section>
+
+    <!-- Marquee wrapper (full-width) -->
+    <div class="marquee" aria-label="Logos de clientes y aliados" role="region">
+      <div class="marquee__track" aria-hidden="true">
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <!-- Duplicate set -->
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+        <div class="marquee__item" aria-hidden="true"><span class="logo-placeholder">[Logo Cliente]</span></div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===========================
        CONTACTO
   ============================ -->
-<section id="contact" class="section-pad">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge">LET'S TALK</span>
-      <h2 class="section-title">Contact Us</h2>
-    </div>
+  <section class="section section--dark" id="contacto">
+    <div class="container">
 
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item">
-          <i class="ph ph-phone-call" aria-hidden="true"></i>
-          <div>
-            <span class="contact-label">TELÉFONO</span>
-            <a href="tel:+573006547315" class="contact-value">[3006547315]</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="ph ph-envelope-simple" aria-hidden="true"></i>
-          <div>
-            <span class="contact-label">CORREO ELECTRÓNICO</span>
-            <a href="mailto:analitica@datelabi.com" class="contact-value">[analitica@datelabi.com]</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <i class="ph ph-map-pin" aria-hidden="true"></i>
-          <div>
-            <span class="contact-label">UBICACIÓN</span>
-            <span class="contact-value">[Barranquilla, Colombia]</span>
-          </div>
-        </div>
+      <div class="section__header section__header--light animate-on-scroll">
+        <span class="section__label">Hablemos</span>
+        <h2 class="section__title">Contáctenos</h2>
+        <p class="section__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
       </div>
 
-      <div class="contact-form">
-        <form action="#" method="POST">
-          <div class="form-row">
-            <div class="form-column">
-              <div class="form-group">
-                <label for="name">NOMBRE COMPLETO</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-              </div>
+      <div class="contact__layout">
+
+        <!-- Info column -->
+        <div class="contact__info animate-on-scroll">
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-phone"></i>
             </div>
-            <div class="form-column">
-              <div class="form-group">
-                <label for="email">CORREO ELECTRÓNICO</label>
-                <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
-              </div>
+            <div>
+              <span class="contact__item-label">Teléfono</span>
+              <a href="tel:[Teléfono]" class="contact__item-value">[Teléfono]</a>
             </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-envelope"></i>
+            </div>
+            <div>
+              <span class="contact__item-label">Correo electrónico</span>
+              <a href="mailto:[Correo]" class="contact__item-value">[Correo]</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon-wrap" aria-hidden="true">
+              <i class="ph ph-map-pin"></i>
+            </div>
+            <div>
+              <span class="contact__item-label">Ubicación</span>
+              <span class="contact__item-value">[Ciudad, País]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="name" class="form__label">Nombre completo</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Tu nombre" required autocomplete="name" />
+              <span class="form__error" id="nameError"></span>
+            </div>
+            <div class="form__group">
+              <label for="email" class="form__label">Correo electrónico</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="tu@correo.com" required autocomplete="email" />
+              <span class="form__error" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="subject" class="form__label">Asunto</label>
+            <input type="text" id="subject" name="subject" class="form__input" placeholder="¿En qué podemos ayudarte?" required />
+              <span class="form__error" id="subjectError"></span>
+          </div>
+          <div class="form__group">
+            <label for="message" class="form__label">Mensaje</label>
+            <textarea id="message" name="message" class="form__textarea" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+            <span class="form__error" id="messageError"></span>
           </div>
 
-          <div class="form-group">
-            <label for="subject">ASUNTO</label>
-            <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" required>
-          </div>
-          <div class="form-group">
-            <label for="message">MENSAJE</label>
-            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
-          </div>
-          
-          <div class="form-group captcha-group">
-            <div class="captcha-box">
-              <input type="checkbox" id="robot" name="robot" required>
-              <label for="robot">No soy un robot</label>
-            </div>
-            <img src="./assets/img/captcha.png" alt="reCAPTCHA" class="captcha-img">
+          <!-- reCAPTCHA v2 -->
+          <div class="form__group form__group--recaptcha">
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark" data-size="normal"></div>
+            <span class="form__error" id="recaptchaError"></span>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            Enviar mensaje
+            <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i>
+          </button>
+          <p class="form__notice" id="formNotice" aria-live="polite" role="alert"></p>
+          <p class="form__disclaimer">Protegido por reCAPTCHA y sujeto a la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad</a> y <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Términos de servicio</a> de Google.</p>
         </form>
-      </div>
-    </div>
-  </div>
-</section>
 
+      </div><!-- /contact__layout -->
+    </div>
+  </section>
 
   <!-- ===========================
        FOOTER
@@ -583,14 +551,5 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
   </button>
 
   <script src="main.js"></script>
-    <section id="privacy" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: 20px;">
-    <div style="background: white; max-width: 800px; margin: 40px auto; padding: 30px; border-radius: 12px; color: #333;">
-      <button onclick="document.getElementById('privacy').style.display='none'" style="float: right; font-size: 30px; border: none; background: none; cursor: pointer;">&times;</button>
-      <h2 style="color: #0B2046;">Política de Tratamiento de Datos Personales</h2>
-      <p><strong>Responsable:</strong> DATELA BI S.A.S. | NIT: 802018415-1</p>
-      <p>Sus datos serán utilizados para: Mantenimiento de relación comercial, facturación y envío de información de servicios...</p>
-      <p>Para consultas o reclamos: analitica@datelabi.com</p>
-    </div>
-  </section>
 </body>
 </html>
