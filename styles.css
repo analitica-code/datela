@@ -6,115 +6,99 @@
 /* ----------------------------------------------------------
    1. CUSTOM PROPERTIES (Design Tokens)
 ---------------------------------------------------------- */
-        /* 1. ESTILOS BASE (Para que no se pierda el diseño) */
-    :root {
-      --color-primary: #0B2046;
-      --color-secondary: #00A4E4;
-      --color-text: #333333;
-      --color-light: #F8FAFC;
-      --color-white: #ffffff;
-    }
+    
+:root {
+  /* Brand Colors */
+  --color-navy:       #0B2046;
+  --color-navy-deep:  #071530;
+  --color-navy-mid:   #0D2A5A;
+  --color-navy-light: #1A3A6E;
+  --color-cyan:       #00A4E4;
+  --color-cyan-dark:  #0087C0;
+  --color-cyan-glow:  rgba(0, 164, 228, 0.18);
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+  /* Neutrals */
+  --color-white:      #FFFFFF;
+  --color-gray-50:    #F8F9FB;
+  --color-gray-100:   #EFF1F5;
+  --color-gray-200:   #DDE1EA;
+  --color-gray-400:   #9AA3B4;
+  --color-gray-600:   #5A6478;
+  --color-gray-800:   #2D3448;
 
-    .btn {
-      display: inline-block;
-      padding: 12px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+  /* Semantic */
+  --color-text-primary:   #0B2046;
+  --color-text-secondary: #5A6478;
+  --color-text-light:     rgba(255,255,255,0.85);
+  --color-text-muted:     rgba(255,255,255,0.5);
 
-    .btn--primary {
-      background-color: var(--color-secondary);
-      color: var(--color-white);
-      border: none;
-    }
+  /* Typography */
+  --font-sans:   'Inter', 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-display:'Montserrat', 'Inter', system-ui, sans-serif;
 
-    .btn--outline {
-      background-color: transparent;
-      color: var(--color-white);
-      border: 2px solid var(--color-white);
-    }
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
 
-    /* 2. DISEÑO HERO (El que querías con cuadrícula y badge) */
-    .hero {
-      position: relative;
-      background-color: var(--color-primary);
-      padding: 160px 0 100px;
-      overflow: hidden;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      color: var(--color-white);
-    }
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-extrabold:800;
 
-    .hero__grid-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: 
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed:1.75;
 
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(0, 164, 228, 0.1);
-      border: 1px solid rgba(0, 164, 228, 0.3);
-      padding: 8px 16px;
-      border-radius: 100px;
-      margin-bottom: 30px;
-    }
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
 
-    .badge__dot {
-      width: 8px; height: 8px;
-      background-color: var(--color-secondary);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--color-secondary);
-    }
+  /* Borders & Radii */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
 
-    .badge__text {
-      color: var(--color-secondary);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(11,32,70,0.08), 0 1px 2px rgba(11,32,70,0.06);
+  --shadow-md:  0 4px 16px rgba(11,32,70,0.10), 0 2px 6px rgba(11,32,70,0.06);
+  --shadow-lg:  0 10px 40px rgba(11,32,70,0.14), 0 4px 12px rgba(11,32,70,0.08);
+  --shadow-xl:  0 20px 60px rgba(11,32,70,0.18), 0 8px 20px rgba(11,32,70,0.10);
+  --shadow-cyan: 0 0 32px rgba(0,164,228,0.25);
 
-    .hero__title {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      line-height: 1.1;
-      color: var(--color-white);
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
+  /* Transitions */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    .text--gradient {
-      color: var(--color-secondary);
-    }
-
-    .hero__subtitle {
-      font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 600px;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    .hero__actions {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+  /* Layout */
+  --container-max: 1200px;
+  --container-pad: clamp(1.25rem, 5vw, 2.5rem);
+  --navbar-height: 72px;
+}
 
 
 
