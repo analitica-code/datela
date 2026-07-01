@@ -24,21 +24,12 @@
   <!-- ===========================
        NAVEGACIÓN
   ============================ -->
-  <header class="navbar" id="navbar">
+ <header class="navbar" id="navbar">
     <div class="container navbar__inner">
 
       <!-- Logo -->
       <a href="#" class="navbar__logo" aria-label="Datela BI - Inicio">
-        <span class="logo__icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="32" height="32" rx="8" fill="#00A4E4"/>
-            <path d="M8 22 L16 10 L24 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="16" cy="10" r="2.5" fill="white"/>
-            <circle cx="8" cy="22" r="2.5" fill="white"/>
-            <circle cx="24" cy="22" r="2.5" fill="white"/>
-          </svg>
-        </span>
-        <span class="logo__text">Datela <strong>BI</strong></span>
+        <img src="./assets/img/logo datela.PNG" alt="Datela BI" class="navbar__logo-img" style="height: 40px; width: auto;">
       </a>
 
      <nav class="navbar__links" id="navLinks">
@@ -51,9 +42,10 @@
       <!-- Right Controls -->
       <div class="navbar__controls">
         <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
-          <button class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
+          <!-- He añadido onclick="setLanguage('es/en')" para que el cambio de idioma funcione al hacer clic -->
+          <button class="lang-btn active" data-lang="es" aria-pressed="true" onclick="setLanguage('es')">ES</button>
           <span class="lang-divider" aria-hidden="true">|</span>
-          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" onclick="setLanguage('en')">EN</button>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span><span></span>
@@ -62,6 +54,7 @@
 
     </div>
   </header>
+
 
   <!-- ===========================
        HERO SECTION
@@ -380,20 +373,21 @@ https://Www.youtube.com/watch?v=LQRn7QRfgnU]
     <!-- Marquee wrapper (full-width) -->
     <div class="marquee" aria-label="Logos de clientes y aliados" role="region">
       <div class="marquee__track">
-        <!-- Tus logos reales -->
-        <div class="marquee__item"><img src="./assets/img/ministerio republica dom.PNG" alt="ministerio republica dom.PNG" class="partner-logo"></div>
-        <div class="marquee__item"><img src="./assets/img/Logo Datecsa 2.png" alt="Logo Datecsa 2.png" class="partner-logo"></div>
-        <div class="marquee__item"><img src="./assets/img/ferrara.PNG" alt="ferrara.PNG" class="partner-logo"></div>
-        <div class="marquee__item"><img src="./assets/img/eSmart.PNG" alt="eSmart.PNG" class="partner-logo"></div>
+        <!-- Tus logos reales con los nombres corregidos -->
+        <div class="marquee__item"><img src="./assets/img/ministerio republica dom.PNG" alt="Ministerio" class="partner-logo"></div>
+        <div class="marquee__item"><img src="./assets/img/ferrara.PNG" alt="Ferrara" class="partner-logo"></div>
+        <div class="marquee__item"><img src="./assets/img/Logo Datecsa 2.png" alt="Datecsa" class="partner-logo"></div>
+        <div class="marquee__item"><img src="./assets/img/eSmart.PNG" alt="eSmart" class="partner-logo"></div>
         
         <!-- Duplicado para el loop infinito -->
-        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/ministerio republica dom.PNG" alt="ministerio republica dom.PNG" class="partner-logo"></div>
-        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/Logo Datecsa 2.png" alt="Logo Datecsa 2.png" class="partner-logo"></div>
-        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/ferrara.PNG" alt="ferrara.PNG" class="partner-logo"></div>
-        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/eSmart.PNG" alt="eSmart.PNG" class="partner-logo"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/ministerio republica dom.PNG" alt="Ministerio" class="partner-logo"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/ferrara.PNG" alt="Ferrara" class="partner-logo"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/Logo Datecsa 2.png" alt="Datecsa" class="partner-logo"></div>
+        <div class="marquee__item" aria-hidden="true"><img src="./assets/img/eSmart.PNG" alt="eSmart" class="partner-logo"></div>
       </div>
     </div>
-  </section>
+</section>
+
 
 
 
