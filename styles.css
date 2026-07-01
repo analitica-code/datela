@@ -6,14 +6,53 @@
 /* ----------------------------------------------------------
    1. CUSTOM PROPERTIES (Design Tokens)
 ---------------------------------------------------------- */
+        /* 1. ESTILOS BASE (Para que no se pierda el diseño) */
+    :root {
+      --color-primary: #0B2046;
+      --color-secondary: #00A4E4;
+      --color-text: #333333;
+      --color-light: #F8FAFC;
+      --color-white: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      border: none;
+    }
+
+    .btn--outline {
+      background-color: transparent;
+      color: var(--color-white);
+      border: 2px solid var(--color-white);
+    }
+
+    /* 2. DISEÑO HERO (El que querías con cuadrícula y badge) */
     .hero {
       position: relative;
-      background-color: #0B2046;
+      background-color: var(--color-primary);
       padding: 160px 0 100px;
       overflow: hidden;
       min-height: 80vh;
       display: flex;
       align-items: center;
+      color: var(--color-white);
     }
 
     .hero__grid-overlay {
@@ -39,13 +78,13 @@
 
     .badge__dot {
       width: 8px; height: 8px;
-      background-color: #00A4E4;
+      background-color: var(--color-secondary);
       border-radius: 50%;
-      box-shadow: 0 0 10px #00A4E4;
+      box-shadow: 0 0 10px var(--color-secondary);
     }
 
     .badge__text {
-      color: #00A4E4;
+      color: var(--color-secondary);
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 1px;
@@ -54,13 +93,13 @@
     .hero__title {
       font-size: clamp(2.5rem, 8vw, 4.5rem);
       line-height: 1.1;
-      color: white;
+      color: var(--color-white);
       font-weight: 800;
       margin-bottom: 24px;
     }
 
     .text--gradient {
-      color: #00A4E4;
+      color: var(--color-secondary);
     }
 
     .hero__subtitle {
@@ -76,6 +115,7 @@
       gap: 20px;
       flex-wrap: wrap;
     }
+
 
 
 /* ----------------------------------------------------------
