@@ -67,17 +67,54 @@
        HERO SECTION
   ============================ -->
  <section class="hero" id="inicio">
+    <!-- Animated background grid -->
+    <div class="hero__grid" aria-hidden="true"></div>
+    <!-- Floating orbs -->
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
     <div class="container hero__content">
-      <h1 class="hero__title" data-i18n="hero.title">Transforma tus datos en decisiones estratégicas</h1>
-      <p class="hero__subtitle" data-i18n="hero.subtitle">
-        En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.
+      <div class="hero__badge animate-fade-up">
+        <span class="badge__dot"></span>
+        Business Intelligence &amp; Analytics
+      </div>
+      <h1 class="hero__title animate-fade-up delay-1">
+        Transforma tus datos<br />
+        en <span class="text-highlight">decisiones estratégicas</span>
+      </h1>
+      <p class="hero__subtitle animate-fade-up delay-2">
+        [Inserta aquí la propuesta de valor corta]
       </p>
-      <div class="hero__stats">
+      <div class="hero__actions animate-fade-up delay-3">
+        <a href="#servicios" class="btn btn--primary">
+          Más información
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="#quienes-somos" class="btn btn--ghost">Conocer la empresa</a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero__stats animate-fade-up delay-4">
         <div class="stat">
-          <span class="stat__value">23+</span>
-          <span class="stat__label" data-i18n="hero.stat2-label">Años de experiencia</span>
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Proyectos entregados</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">+[N]</span>
+          <span class="stat__label">Clientes satisfechos</span>
+        </div>
+        <div class="stat__divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat__value">[N]+</span>
+          <span class="stat__label">Años de experiencia</span>
         </div>
       </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="scroll__line"></span>
     </div>
   </section>
 
