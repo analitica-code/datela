@@ -1631,31 +1631,3 @@ a.contact__item-value:hover { color: var(--color-cyan); }
 
   .marquee__track { animation: none; }
 }
-
-
-/* 1. ELIMINAR EL FONDO BLANCO Y VOLVER AL AZUL DE DATELA */
-body {
-  background-color: #071530 !important;
-  color: white !important;
-}
-
-/* 2. FORZAR EL DISEÑO DE DOS COLUMNAS (Usando tus clases reales) */
-.contact__layout {
-  display: grid !important;
-  grid-template-columns: 1fr 1.6fr !important; /* Info a la izquierda, Formulario a la derecha */
-  gap: 50px !important;
-  background-color: #071530 !important;
-}
-
-.form__row {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important; /* Nombre y Correo en dos columnas */
-  gap: 20px !important;
-}
-
-/* 3. ESTILO DE LAS CAJAS (Oscuras con borde sutil) */
-.form__input, .form__textarea {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: white !important;
-}
