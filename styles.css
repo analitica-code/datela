@@ -1633,29 +1633,29 @@ a.contact__item-value:hover { color: var(--color-cyan); }
 }
 
 
-/* Asegurar fondo azul y diseño de dos columnas solo en contacto */
-#contact {
+/* 1. ELIMINAR EL FONDO BLANCO Y VOLVER AL AZUL DE DATELA */
+body {
   background-color: #071530 !important;
   color: white !important;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
+/* 2. FORZAR EL DISEÑO DE DOS COLUMNAS (Usando tus clases reales) */
+.contact__layout {
+  display: grid !important;
+  grid-template-columns: 1fr 1.6fr !important; /* Info a la izquierda, Formulario a la derecha */
+  gap: 50px !important;
+  background-color: #071530 !important;
 }
 
-.form-row {
-  display: flex;
-  gap: 20px;
+.form__row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important; /* Nombre y Correo en dos columnas */
+  gap: 20px !important;
 }
 
-.form-column {
-  flex: 1;
-}
-
-.contact-form input, .contact-form textarea {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* 3. ESTILO DE LAS CAJAS (Oscuras con borde sutil) */
+.form__input, .form__textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
 }
