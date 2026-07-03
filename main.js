@@ -515,3 +515,19 @@ onReady(() => {
 
   console.info('%c Datela BI S.A.S. — Landing Page v2.0 ', 'background:#0B2046;color:#00A4E4;font-weight:bold;padding:4px 8px;border-radius:4px;');
 });
+
+// --- Lógica del Slider de Equipo ---
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('teamSlider');
+  const nextBtn = document.getElementById('teamNext');
+  const prevBtn = document.getElementById('teamPrev');
+
+  if (slider && nextBtn && prevBtn) {
+    nextBtn.onclick = () => {
+      slider.scrollLeft += slider.offsetWidth;
+    };
+    prevBtn.onclick = () => {
+      slider.scrollLeft -= slider.offsetWidth;
+    };
+  }
+});
