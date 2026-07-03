@@ -4,7 +4,7 @@ const translations = {
     'nav.servicios': 'Servicios',
     'nav.equipo': 'Equipo',
     'nav.contacto': 'Contáctenos',
-    'hero.title': 'Transforma tus datos en decisiones estratégicas',
+    'hero.title': 'Transforma tus datos en <span class="text-highlight">decisiones estratégicas</span>',
     'hero.subtitle': 'En Datela BI ayudamos a las empresas a convertir datos en decisiones inteligentes.',
     'hero.cta_primary': 'Más información',
     'hero.cta_secondary': 'Conocer la empresa',
@@ -82,7 +82,7 @@ const translations = {
     'nav.servicios': 'Services',
     'nav.equipo': 'Team',
     'nav.contacto': 'Contact Us',
-    'hero.title': 'Transform your data into strategic decisions',
+    'hero.title': 'Transform your data into <span class="text-highlight">strategic decisions</span>',
     'hero.subtitle': 'At Datela BI we help companies turn data into intelligent decisions.',
     'hero.cta_primary': 'Learn more',
     'hero.cta_secondary': 'About the company',
@@ -331,18 +331,18 @@ const initLangSwitcher = () => {
       document.documentElement.setAttribute('lang', lang);
       localStorage.setItem('selectedLanguage', lang);
 
-      document.querySelectorAll('[data-i18n]').forEach(el => {
+           document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
           if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
             el.placeholder = translations[lang][key];
-          } else if (key.includes('body') || key.includes('copyright') || key.includes('desc') || key.includes('bio')) {
-            el.innerHTML = translations[lang][key];
           } else {
-            el.textContent = translations[lang][key];
+            // Usamos innerHTML para que el <span> de color del título funcione siempre
+            el.innerHTML = translations[lang][key];
           }
         }
       });
+
 
       console.info(`[Datela BI] Idioma cambiado a: ${lang.toUpperCase()}`);
     });
