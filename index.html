@@ -308,55 +308,284 @@ fidelizar clientes e incrementar la participación en el mercado.
   <!-- ===========================
        EQUIPO
   ============================ -->
-   <section class="section section--light" id="equipo">
-    <div class="container">
+  <section id="equipo" class="section section--light">
+  <div class="container">
+    <!-- Encabezado de la Sección -->
+    <div class="section__header animate-on-scroll">
+      <span class="section__label" data-i18n="team.our_team">Las personas</span>
+      <h2 class="section__title" data-i18n="team.title">Equipo</h2>
+    </div>
 
-      <div class="section__header animate-on-scroll">
-        <span class="section__label">Las personas</span>
-        <h2 class="section__title">Equipo</h2>
-      </div>
+    <!-- Contenedor del Slider -->
+    <div class="team__slider-container animate-on-scroll">
+      <!-- Botón Anterior -->
+      <button class="team__nav-btn team__nav-btn--prev" id="teamPrev" aria-label="Anterior">
+        <i class="ph ph-caret-left"></i>
+      </button>
 
-      <div class="team__card animate-on-scroll">
-
-        <!-- Photo -->
-        <div class="team__photo-wrap">
-  <!-- Usamos el nombre exacto de la imagen de WhatsApp -->
-  <img src="WhatsApp%20Image%202026-06-25%20at%2020.45.55.jpeg" 
-       alt="Ing. Roque Maldonado Insignares" 
-       style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid #00A4E4; background: #0B2046;">
-</div>
-
-        <!-- Info -->
-        <div class="team__info">
-          <span class="team__role" data-i18n="team.ceo_role">Fundador & CEO</span>
-          <h3 class="team__name" data-i18n="team.ceo_name">Ing. Roque Maldonado Insignares</h3>
-          <span class="team__credential">
-  <i class="ph ph-seal-check" aria-hidden="true"></i>
-  <span>Científico de Datos — MinTIC</span>
-</span>
-
-          <p class="team__bio" data-i18n="team.ceo_bio">
-            [Científico de datos (MinTIC). ROQUE MALDONADO INSIGNARES. Barranquilla. Ingeniero de Sistemas, especialista Gerencia en Sistemas de Información, científico de Datos MinTIC, Lider IA, arquitecto de soluciones enfocado en la orquestación de ecosistemas autónomos de decisión y la democratización analítica. Combina su liderazgo empresarial corporativo durante 32 años con una sólida trayectoria de más de 21 años como docente universitario y representante del sector externo en el comité curricular de Ciencia de Datos de la Universidad del Norte. Líder de Data Inspirers Community. CEO fundador de Datela BI SAS.   Se desempeña como Director Nacional de BI en Olímpica S.A., donde ha liderado la creación de una cultura data-driven, el proyecto de Transformación Analítica Organizacional (TAO) y la migración a la nube. Cuenta con un historial comprobado de retornos tangibles, optimización integral del abastecimiento y creador de herramienta IA inteligencia competitiva de precios. Además, impulsa el crecimiento empresarial mediante el apoyo estratégico impulsando al análisis profundo de datos, la automatización de procesos y el descubrimiento de información de alto impacto. Nivel avanzado en ecosistemas Qlik integrados en arquitecturas AWS (S3, Redshift, Glue, EC2) y orquestación con Apache Airflow. Experiencia profunda en desarrollo de procesos ETL y modelos analíticos avanzados (hipersegmentación RFM, Churn, implementación agentes y lenguaje natural). Dominio de tecnologías emergentes y flujos de trabajo IA, incluyendo técnicas de vibecoding e ingeniería de prompting, utilizando herramientas como Click House,
-Gemini, Lovable, n8n, Apify y Canva para maximizar la productividad corporativa.
-Artículos publicados en Revista Ingeniare Unilibre: Inteligencia de Negocios (2010), Redes Neuronales Artificiales (2009).
-https://Www.youtube.com/watch?v=LQRn7QRfgnU]
-          </p>
-          <div class="team__social">
-            <a href="#" class="social-btn" aria-label="LinkedIn de Roque Maldonado">
-              <i class="ph ph-linkedin-logo" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="social-btn" aria-label="GitHub de Roque Maldonado">
-              <i class="ph ph-github-logo" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="social-btn" aria-label="Correo de Roque Maldonado">
-              <i class="ph ph-envelope" aria-hidden="true"></i>
-            </a>
+      <!-- Slider -->
+      <div class="team__slider" id="teamSlider">
+        <!-- INTEGRANTE 1: ROQUE MALDONADO -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="WhatsApp%20Image%202026-06-25%20at%2020.45.55.jpeg" alt="Ing. Roque Maldonado Insignares" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.roque_maldonado_name">Ing. Roque Maldonado Insignares</h3>
+              <span class="team__role" data-i18n="team.roque_maldonado_role">Fundador & CEO</span>
+              <p class="team__bio" data-i18n="team.roque_maldonado_bio">
+                Ingeniero de Sistemas, especialista Gerencia en Sistemas de Información, científico de Datos MinTIC, Lider IA, arquitecto de soluciones enfocado en la orquestación de ecosistemas autónomos de decisión y la democratización analítica. Combina su liderazgo empresarial corporativo durante 32 años con una sólida trayectoria de más de 21 años como docente universitario y representante del sector externo en el comité curricular de Ciencia de Datos de la Universidad del Norte. Líder de Data Inspirers Community. CEO fundador de Datela BI SAS. Se desempeña como Director Nacional de BI en Olímpica S.A., donde ha liderado la creación de una cultura data-driven, el proyecto de Transformación Analítica Organizacional (TAO) y la migración a la nube. Cuenta con un historial comprobado de retornos tangibles, optimización integral del abastecimiento y creador de herramienta IA inteligencia competitiva de precios. Además, impulsa el crecimiento empresarial mediante el apoyo estratégico impulsando al análisis profundo de datos, la automatización de procesos y el descubrimiento de información de alto impacto. Nivel avanzado en ecosistemas Qlik integrados en arquitecturas AWS (S3, Redshift, Glue, EC2) y orquestación con Apache Airflow. Experiencia profunda en desarrollo de procesos ETL y modelos analíticos avanzados (hipersegmentación RFM, Churn, implementación agentes y lenguaje natural). Dominio de tecnologías emergentes y flujos de trabajo IA, incluyendo técnicas de vibecoding e ingeniería de prompting, utilizando herramientas como Click House, Gemini, Lovable, n8n, Apify y Canva para maximizar la productividad corporativa. Artículos publicados en Revista Ingeniare Unilibre: Inteligencia de Negocios (2010), Redes Neuronales Artificiales (2009).
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
           </div>
         </div>
 
-      </div><!-- /team__card -->
+        <!-- INTEGRANTE 2 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_2.jpeg" alt="Miembro del Equipo 2" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_2_name">Miembro del Equipo 2</h3>
+              <span class="team__role" data-i18n="team.member_2_role">Rol 2</span>
+              <p class="team__bio" data-i18n="team.member_2_bio">
+                Breve biografía del Miembro del Equipo 2, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 3 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_3.jpeg" alt="Miembro del Equipo 3" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_3_name">Miembro del Equipo 3</h3>
+              <span class="team__role" data-i18n="team.member_3_role">Rol 3</span>
+              <p class="team__bio" data-i18n="team.member_3_bio">
+                Breve biografía del Miembro del Equipo 3, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 4 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_4.jpeg" alt="Miembro del Equipo 4" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_4_name">Miembro del Equipo 4</h3>
+              <span class="team__role" data-i18n="team.member_4_role">Rol 4</span>
+              <p class="team__bio" data-i18n="team.member_4_bio">
+                Breve biografía del Miembro del Equipo 4, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 5 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_5.jpeg" alt="Miembro del Equipo 5" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_5_name">Miembro del Equipo 5</h3>
+              <span class="team__role" data-i18n="team.member_5_role">Rol 5</span>
+              <p class="team__bio" data-i18n="team.member_5_bio">
+                Breve biografía del Miembro del Equipo 5, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 6 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_6.jpeg" alt="Miembro del Equipo 6" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_6_name">Miembro del Equipo 6</h3>
+              <span class="team__role" data-i18n="team.member_6_role">Rol 6</span>
+              <p class="team__bio" data-i18n="team.member_6_bio">
+                Breve biografía del Miembro del Equipo 6, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 7 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_7.jpeg" alt="Miembro del Equipo 7" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_7_name">Miembro del Equipo 7</h3>
+              <span class="team__role" data-i18n="team.member_7_role">Rol 7</span>
+              <p class="team__bio" data-i18n="team.member_7_bio">
+                Breve biografía del Miembro del Equipo 7, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 8 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_8.jpeg" alt="Miembro del Equipo 8" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_8_name">Miembro del Equipo 8</h3>
+              <span class="team__role" data-i18n="team.member_8_role">Rol 8</span>
+              <p class="team__bio" data-i18n="team.member_8_bio">
+                Breve biografía del Miembro del Equipo 8, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 9 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_9.jpeg" alt="Miembro del Equipo 9" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_9_name">Miembro del Equipo 9</h3>
+              <span class="team__role" data-i18n="team.member_9_role">Rol 9</span>
+              <p class="team__bio" data-i18n="team.member_9_bio">
+                Breve biografía del Miembro del Equipo 9, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 10 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_10.jpeg" alt="Miembro del Equipo 10" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_10_name">Miembro del Equipo 10</h3>
+              <span class="team__role" data-i18n="team.member_10_role">Rol 10</span>
+              <p class="team__bio" data-i18n="team.member_10_bio">
+                Breve biografía del Miembro del Equipo 10, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 11 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_11.jpeg" alt="Miembro del Equipo 11" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_11_name">Miembro del Equipo 11</h3>
+              <span class="team__role" data-i18n="team.member_11_role">Rol 11</span>
+              <p class="team__bio" data-i18n="team.member_11_bio">
+                Breve biografía del Miembro del Equipo 11, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 12 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_12.jpeg" alt="Miembro del Equipo 12" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_12_name">Miembro del Equipo 12</h3>
+              <span class="team__role" data-i18n="team.member_12_role">Rol 12</span>
+              <p class="team__bio" data-i18n="team.member_12_bio">
+                Breve biografía del Miembro del Equipo 12, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTEGRANTE 13 -->
+        <div class="team__slide">
+          <div class="team__card">
+            <div class="team__photo-wrap">
+              <img src="placeholder_member_13.jpeg" alt="Miembro del Equipo 13" class="team__photo">
+            </div>
+            <div class="team__info">
+              <h3 class="team__name" data-i18n="team.member_13_name">Miembro del Equipo 13</h3>
+              <span class="team__role" data-i18n="team.member_13_role">Rol 13</span>
+              <p class="team__bio" data-i18n="team.member_13_bio">
+                Breve biografía del Miembro del Equipo 13, destacando su experiencia y aportes a Datela BI.
+              </p>
+              <div class="team__social">
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón Siguiente -->
+      <button class="team__nav-btn team__nav-btn--next" id="teamNext" aria-label="Siguiente">
+        <i class="ph ph-caret-right"></i>
+      </button>
     </div>
-  </section>
+
+    <!-- Indicadores (Puntos) -->
+    <div class="team__dots" id="teamDots">
+      <!-- Los puntos se generarán automáticamente con JavaScript -->
+    </div>
+  </div>
+</section>
+
 
   <!-- ===========================
        ALIADOS — MARQUESINA
