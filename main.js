@@ -524,9 +524,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (slider && nextBtn && prevBtn) {
     nextBtn.onclick = () => {
+      // Mueve el slider exactamente el ancho de una tarjeta
       slider.scrollLeft += slider.offsetWidth;
     };
     prevBtn.onclick = () => {
+      // Mueve el slider hacia atrás
       slider.scrollLeft -= slider.offsetWidth;
     };
   }
